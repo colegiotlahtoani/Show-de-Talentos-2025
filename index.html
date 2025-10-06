@@ -1,229 +1,25 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Show de Talentos 2025 — Escuela Tlahtoani</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --primario:#FF6B35;
-      --secundario:#00A5E0;
-      --acento:#FFD166;
-      --fondo:#F8F9FA;
-      --blanco:#fff;
-      --sombra:rgba(0,0,0,0.2);
-    }
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-    body{background:var(--fondo);color:#333;line-height:1.6;overflow-x:hidden;}
+.card {
+  position: relative;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(6px);
+  border-radius: 18px;
+  padding: 2.2rem 1.2rem 1.2rem;  /* aumenté el padding-top para dejar espacio al letrerito */
+  text-align: left;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: .3s;
+  cursor: default;
+}
 
-    header.hero{
-      background:linear-gradient(135deg,var(--primario),var(--secundario));
-      color:var(--blanco);padding:3rem 1rem;text-align:center;
-      box-shadow:0 6px 20px rgba(0,0,0,0.15);
-    }
-    header.hero h1{font-size:2.6rem;font-weight:800;margin-bottom:0.6rem;}
-    header.hero p{font-size:1.05rem;max-width:780px;margin:0.25rem auto;opacity:.98}
-    header.hero .eslogan{opacity:1;font-weight:600;letter-spacing:.3px}
-
-    /* NAV */
-    nav{
-      background:var(--blanco);padding:0.8rem 1rem;
-      box-shadow:0 4px 12px rgba(0,0,0,0.1);position:sticky;top:0;z-index:100;
-      display:flex;justify-content:space-between;align-items:center;
-    }
-    nav .links{display:flex;gap:.5rem;}
-    nav button{
-      background:none;border:none;padding:0.6rem 1.1rem;font-size:1rem;
-      cursor:pointer;border-radius:20px;transition:.25s;font-weight:600;color:#333;
-    }
-    nav button:hover,nav button.active{background:var(--acento);color:#333;}
-    nav .menu-toggle{display:none;font-size:1.6rem;background:none;border:none;color:#333;cursor:pointer;}
-
-    @media(max-width:768px){
-      nav .links{display:none;flex-direction:column;gap:0.8rem;background:#fff;position:absolute;top:60px;left:0;right:0;padding:1rem;box-shadow:0 4px 10px rgba(0,0,0,.1)}
-      nav .links.show{display:flex;}
-      nav .menu-toggle{display:block;}
-    }
-
-    section{max-width:1200px;margin:2rem auto;padding:0 1rem;display:none;animation:fadeIn .5s ease}
-    section.active{display:block;}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-    h2{text-align:center;font-size:2rem;color:var(--primario);margin-bottom:.6rem}
-    .intro{text-align:center;max-width:800px;margin:0 auto 1.4rem;font-size:1.05rem}
-    .hero-img{display:block;max-width:880px;width:95%;margin:0 auto 1.6rem;border-radius:18px;box-shadow:0 10px 30px var(--sombra)}
-
-    .grid{display:grid;gap:1.4rem;margin-top:1.2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-    .card{
-      position:relative;background:rgba(255,255,255,0.9);backdrop-filter:blur(6px);
-      border-radius:18px;padding:1.4rem 1.2rem;text-align:left;border:2px solid transparent;
-      box-shadow:0 10px 25px rgba(0,0,0,0.08);transition:.3s;cursor:default;
-    }
-    .card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 14px 30px rgba(0,0,0,0.15);border-color:var(--acento)}
-    .pill{position:absolute;top:12px;left:12px;background:var(--acento);color:#333;font-size:.78rem;font-weight:700;padding:.25rem .7rem;border-radius:14px}
-    .icono{font-size:1.6rem;margin-right:.6rem}
-    .card h3{font-size:1.15rem;color:var(--primario);margin:.2rem 0 .4rem;font-weight:800}
-    .card p{font-size:.98rem;color:#555}
-    .bullet{margin:.35rem 0 .35rem 1rem}
-    .bullet li{margin:.15rem 0}
-    .note{background:#f7fafc;border-left:4px solid var(--secundario);padding:.75rem .9rem;border-radius:10px;margin-top:.6rem;color:#444}
-
-    /* Modal */
-    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(3px);justify-content:center;align-items:center;z-index:100}
-    .modal-content{background:#fff;border-radius:20px;max-width:640px;width:92%;box-shadow:0 12px 35px rgba(0,0,0,.25);animation:fadeIn .35s ease;position:relative}
-    .modal-header{background:linear-gradient(135deg,var(--primario),var(--secundario));padding:1.6rem;color:#fff;text-align:center}
-    .modal-body{padding:1.2rem 1.2rem 1.6rem}
-    .modal-close{position:absolute;right:14px;top:10px;background:transparent;border:none;color:#fff;font-size:1.3rem;cursor:pointer}
-
-    /* Floating button */
-    .float-btn{
-      position:fixed;bottom:20px;right:20px;background:linear-gradient(135deg,var(--secundario),var(--primario));
-      color:#fff;border:none;padding:0.9rem 1.4rem;border-radius:30px;cursor:pointer;
-      box-shadow:0 6px 15px rgba(0,0,0,0.2);font-weight:600;font-size:1rem;z-index:200;transition:.3s;
-    }
-    .float-btn:hover{transform:scale(1.05)}
-
-    /* Footer */
-    footer{
-      background:linear-gradient(135deg,var(--primario),var(--secundario));color:#fff;
-      text-align:center;padding:1.6rem 1rem;font-size:.98rem;font-weight:500;margin-top:3rem;position:relative;
-      box-shadow:0 -4px 15px rgba(0,0,0,.18)
-    }
-    footer::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--acento)}
-  </style>
-</head>
-<body>
-
-<header class="hero">
-  <h1>¡SHOW DE TALENTOS ESCUELA TLAHTOANI!</h1>
-  <p class="eslogan">“Donde la creatividad y el arte cobran vida”</p>
-  <p>Convocatoria oficial al Show de Talentos 2025, un espacio para que los alumnos demuestren sus habilidades.</p>
-  <h3 id="countdown" style="margin-top:1rem;font-weight:600;"></h3>
-</header>
-
-<nav>
-  <button class="menu-toggle" aria-label="Menú">☰</button>
-  <div class="links">
-    <button class="active" onclick="mostrarSeccion('inicio', event)">Inicio</button>
-    <button onclick="mostrarSeccion('categorias', event)">Categorías</button>
-    <button onclick="mostrarSeccion('participantes', event)">Participantes</button>
-    <button onclick="mostrarSeccion('bases', event)">Bases</button>
-  </div>
-</nav>
-
-<!-- Inicio -->
-<section id="inicio" class="active">
-  <h2>Convocatoria</h2>
-  <p class="intro">Impulsa la expresión artística, la autoestima y el compañerismo en un evento único.</p>
-  <img src="show-talentos.jpg" alt="Estudiantes en el Show de Talentos" class="hero-img"/>
-</section>
-
-<!-- Categorías -->
-<section id="categorias">
-  <h2>Categorías de Participación</h2>
-  <p class="intro">Canto, danza, música, teatro y talentos variados. ¡Escoge tu estilo!</p>
-  <div class="grid" id="gridCategorias"></div>
-</section>
-
-<!-- Participantes -->
-<section id="participantes">
-  <h2>De los Participantes</h2>
-  <p class="intro">Reglas de inscripción y participación.</p>
-  <div class="grid">
-    <div class="card">
-      <span class="pill">Quiénes</span>
-      <h3><span class="icono">👥</span>Pueden participar</h3>
-      <ul class="bullet">
-        <li>Todos los alumnos de la Escuela Tlahtoani.</li>
-        <li>Individual o grupal (pueden mezclar grados).</li>
-        <li>Solo se permite una participación por alumno.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- Bases -->
-<section id="bases">
-  <h2>Bases y Requisitos</h2>
-  <div class="grid">
-    <div class="card"><span class="pill">Duración</span><h3>⏱️ Máximo 5 minutos</h3></div>
-    <div class="card"><span class="pill">Contenido</span><h3>🛡️ Apropiado</h3><p>Sin lenguaje vulgar ni violencia.</p></div>
-    <div class="card"><span class="pill">Música</span><h3>🎵 Formato MP3</h3></div>
-    <div class="card"><span class="pill">Vestuario</span><h3>👗 Adecuado</h3></div>
-    <div class="card"><span class="pill">Originalidad</span><h3>✨ Creatividad</h3></div>
-  </div>
-</section>
-
-<!-- Modal -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button class="modal-close" onclick="cerrarModal()">✕</button>
-      <h3 id="modalTitulo"></h3>
-    </div>
-    <div class="modal-body">
-      <p id="modalDesc"></p>
-      <ul class="bullet" id="modalEjemplos"></ul>
-    </div>
-  </div>
-</div>
-
-<!-- Botón flotante -->
-<button class="float-btn" onclick="window.open('https://forms.gle/','_blank')">📩 Inscribirme</button>
-
-<footer>
-  <p>© 2025 <strong>Escuela Tlahtoani</strong> — Show de Talentos</p>
-</footer>
-
-<script>
-  // Nav
-  function mostrarSeccion(id, ev){
-    document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-    if(ev) ev.target.classList.add('active');
-  }
-  document.querySelector('.menu-toggle').addEventListener('click',()=>{
-    document.querySelector('.links').classList.toggle('show');
-  });
-
-  // Modal categorías
-  const categorias = [
-    {titulo:"Canto",icono:"🎤",desc:"Solista, dueto o grupo vocal.",ejemplos:["Balada","Pop","Folclórico"]},
-    {titulo:"Baile / Danza",icono:"🕺",desc:"Individual o grupal.",ejemplos:["Folclórico","Moderno","Urbano"]},
-    {titulo:"Música Instrumental",icono:"🎸",desc:"Solista o ensamble.",ejemplos:["Piano","Guitarra","Banda"]},
-    {titulo:"Actuación / Teatro",icono:"🎭",desc:"Monólogo, sketch o declamación.",ejemplos:["Stand-up","Obra corta"]},
-    {titulo:"Talento Variado",icono:"✨",desc:"Magia, poesía, dibujo en vivo.",ejemplos:["Malabares","Artes marciales","Magia"]}
-  ];
-  const grid=document.getElementById('gridCategorias');
-  categorias.forEach(c=>{
-    const el=document.createElement('div');el.className='card';
-    el.innerHTML=`<span class="pill">Categoría</span><h3><span class="icono">${c.icono}</span>${c.titulo}</h3><p>${c.desc}</p>`;
-    el.addEventListener('click',()=>abrirModal(c));grid.appendChild(el);
-  });
-  function abrirModal(c){
-    document.getElementById('modalTitulo').textContent=c.titulo;
-    document.getElementById('modalDesc').textContent=c.desc;
-    const ul=document.getElementById('modalEjemplos');ul.innerHTML='';
-    c.ejemplos.forEach(e=>{const li=document.createElement('li');li.textContent=e;ul.appendChild(li);});
-    document.getElementById('modal').style.display='flex';
-  }
-  function cerrarModal(){document.getElementById('modal').style.display='none';}
-  window.addEventListener('keydown',e=>{if(e.key==="Escape")cerrarModal();});
-
-  // Contador regresivo
-  const evento=new Date("2025-11-15T18:00:00").getTime();
-  setInterval(()=>{
-    const ahora=new Date().getTime();let diff=evento-ahora;
-    if(diff<=0){document.getElementById('countdown').textContent="¡El show ha comenzado!";return;}
-    const d=Math.floor(diff/(1000*60*60*24));
-    const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-    const m=Math.floor((diff%(1000*60*60))/(1000*60));
-    document.getElementById('countdown').textContent=`Faltan ${d}d ${h}h ${m}m para el Show`;
-  },60000);
-</script>
-</body>
-</html>
+.pill {
+  position: absolute;
+  top: -12px;               /* ahora está encima de la tarjeta */
+  left: 16px;
+  background: var(--acento);
+  color: #333;
+  font-size: .75rem;
+  font-weight: 700;
+  padding: .25rem .7rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
