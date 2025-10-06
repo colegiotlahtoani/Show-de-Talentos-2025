@@ -19,6 +19,7 @@
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
     body{background:var(--fondo);color:#333;line-height:1.6;overflow-x:hidden;}
 
+    /* ===== HEADER ===== */
     header.hero{
       background:linear-gradient(135deg,var(--primario),var(--secundario));
       color:var(--blanco);
@@ -26,38 +27,29 @@
       text-align:center;
       box-shadow:0 6px 20px rgba(0,0,0,0.15);
     }
-    header.hero h1{font-size:2.2rem;font-weight:800;margin-bottom:0.6rem;}
+    header.hero h1{font-size:2.4rem;font-weight:800;margin-bottom:0.6rem;}
     header.hero p{font-size:1rem;max-width:720px;margin:0.25rem auto;}
     header.hero .eslogan{font-weight:600;}
+    #countdown{margin-top:1rem;font-weight:600;font-size:1rem;}
 
-    /* NAV */
+    /* ===== NAV ===== */
     nav{
       background:var(--blanco);
       padding:0.7rem 1rem;
       box-shadow:0 4px 12px rgba(0,0,0,0.1);
       position:sticky;top:0;z-index:100;
-      display:flex;justify-content:space-between;align-items:center;
+      display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;
     }
-    nav .links{display:flex;gap:.4rem;}
     nav button{
-      background:none;border:none;padding:0.6rem 1rem;font-size:1rem;
+      background:none;border:none;padding:0.6rem 1.2rem;font-size:1rem;
       cursor:pointer;border-radius:20px;transition:.25s;font-weight:600;color:#333;
     }
-    nav button:hover,nav button.active{background:var(--acento);color:#333;}
-    nav .menu-toggle{
-      display:none;font-size:1.8rem;background:none;border:none;color:#333;cursor:pointer;
+    nav button:hover,nav button.active{
+      background:var(--acento);
+      color:#333;
     }
 
-    @media(max-width:768px){
-      nav .links{
-        display:none;flex-direction:column;gap:0.8rem;
-        background:#fff;position:absolute;top:60px;left:0;right:0;
-        padding:1rem;border-top:1px solid #ddd;
-      }
-      nav .links.show{display:flex;}
-      nav .menu-toggle{display:block;}
-    }
-
+    /* ===== SECTIONS ===== */
     section{
       max-width:1100px;margin:1.8rem auto;padding:0 1rem;
       display:none;animation:fadeIn .5s ease;
@@ -73,22 +65,35 @@
       box-shadow:0 6px 20px rgba(0,0,0,0.15);
     }
 
+    /* ===== CARDS ===== */
     .grid{
       display:grid;gap:1rem;margin-top:1rem;
       grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     }
     .card{
-      position:relative;background:rgba(255,255,255,0.95);backdrop-filter:blur(6px);
-      border-radius:16px;padding:2.2rem 1.1rem 1.2rem;
-      text-align:left;border:1px solid transparent;
+      position:relative;
+      background:rgba(255,255,255,0.95);
+      backdrop-filter:blur(6px);
+      border-radius:16px;
+      padding:2.2rem 1.1rem 1.2rem;
+      text-align:left;
+      border:1px solid transparent;
       box-shadow:0 4px 12px rgba(0,0,0,0.08);
       transition:.3s;
     }
-    .card:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,0.15);}
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 20px rgba(0,0,0,0.15);
+    }
     .pill{
-      position:absolute;top:-12px;left:14px;
-      background:var(--acento);color:#333;font-size:.75rem;
-      font-weight:700;padding:.22rem .65rem;border-radius:14px;
+      position:absolute;
+      top:-12px;left:14px;
+      background:var(--acento);
+      color:#333;
+      font-size:.75rem;
+      font-weight:700;
+      padding:.22rem .65rem;
+      border-radius:14px;
       box-shadow:0 3px 8px rgba(0,0,0,0.1);
     }
     .icono{font-size:1.5rem;margin-right:.5rem}
@@ -96,20 +101,41 @@
     .card p{font-size:.95rem;color:#555}
     .bullet{margin:.4rem 0 .4rem 1rem}
     .bullet li{margin:.15rem 0}
-    .note{background:#f7fafc;border-left:4px solid var(--secundario);padding:.6rem .8rem;border-radius:10px;margin-top:.5rem;font-size:.9rem}
+    .note{
+      background:#f7fafc;
+      border-left:4px solid var(--secundario);
+      padding:.6rem .8rem;
+      border-radius:10px;
+      margin-top:.5rem;
+      font-size:.9rem;
+    }
 
-    /* MODAL */
-    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(3px);justify-content:center;align-items:center;z-index:200;}
+    /* ===== MODAL ===== */
+    .modal{
+      display:none;position:fixed;inset:0;
+      background:rgba(0,0,0,.45);
+      backdrop-filter:blur(3px);
+      justify-content:center;align-items:center;
+      z-index:200;
+    }
     .modal-content{
       background:#fff;border-radius:18px;max-width:600px;width:92%;
       box-shadow:0 8px 25px rgba(0,0,0,.25);
-      animation:fadeIn .35s ease;position:relative;
+      animation:fadeIn .35s ease;
+      position:relative;
     }
-    .modal-header{background:linear-gradient(135deg,var(--primario),var(--secundario));padding:1.2rem;color:#fff;text-align:center;font-weight:600;}
+    .modal-header{
+      background:linear-gradient(135deg,var(--primario),var(--secundario));
+      padding:1.2rem;color:#fff;text-align:center;font-weight:600;
+    }
     .modal-body{padding:1rem 1.2rem 1.4rem;font-size:.95rem;}
-    .modal-close{position:absolute;right:14px;top:10px;background:transparent;border:none;color:#fff;font-size:1.3rem;cursor:pointer;}
+    .modal-close{
+      position:absolute;right:14px;top:10px;
+      background:transparent;border:none;color:#fff;
+      font-size:1.3rem;cursor:pointer;
+    }
 
-    /* Botón flotante */
+    /* ===== FLOAT BUTTON ===== */
     .float-btn{
       position:fixed;bottom:18px;right:18px;
       background:linear-gradient(135deg,var(--secundario),var(--primario));
@@ -119,42 +145,51 @@
     }
     .float-btn:hover{transform:scale(1.05)}
 
+    /* ===== FOOTER ===== */
     footer{
-      background:linear-gradient(135deg,var(--primario),var(--secundario));color:#fff;
-      text-align:center;padding:1.2rem;font-size:.9rem;font-weight:500;margin-top:2rem;position:relative;
+      background:linear-gradient(135deg,var(--primario),var(--secundario));
+      color:#fff;
+      text-align:center;
+      padding:1.2rem;
+      font-size:.9rem;font-weight:500;
+      margin-top:2rem;
+      position:relative;
     }
-    footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--acento)}
+    footer::before{
+      content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--acento);
+    }
 
-    /* Ajustes en móviles */
-    @media(max-width:480px){
-      header.hero h1{font-size:1.7rem;}
+    /* ===== MEDIA QUERIES ===== */
+    @media(max-width:600px){
+      nav{gap:.5rem;flex-wrap:wrap;}
+      nav button{font-size:.9rem;padding:.5rem .8rem;}
+      header.hero h1{font-size:1.9rem;}
       header.hero p{font-size:.9rem;}
       h2{font-size:1.5rem;}
-      .card{padding:2rem 1rem 1rem;}
       .card h3{font-size:1rem;}
-      .float-btn{font-size:.9rem;padding:0.7rem 1.1rem;}
+      .float-btn{font-size:.85rem;padding:.7rem 1rem;}
     }
   </style>
 </head>
 <body>
 
+<!-- ===== HEADER ===== -->
 <header class="hero">
   <h1>¡SHOW DE TALENTOS ESCUELA TLAHTOANI!</h1>
   <p class="eslogan">“Donde la creatividad y el arte cobran vida”</p>
   <p>Convocatoria oficial al Show de Talentos 2025, un espacio para que los alumnos demuestren sus habilidades.</p>
-  <h3 id="countdown" style="margin-top:1rem;font-weight:600;"></h3>
+  <h3 id="countdown"></h3>
 </header>
 
+<!-- ===== NAV ===== -->
 <nav>
-  <button class="menu-toggle" aria-label="Menú">☰</button>
-  <div class="links">
-    <button class="active" onclick="mostrarSeccion('inicio', event)">Inicio</button>
-    <button onclick="mostrarSeccion('categorias', event)">Categorías</button>
-    <button onclick="mostrarSeccion('participantes', event)">Participantes</button>
-    <button onclick="mostrarSeccion('bases', event)">Bases</button>
-  </div>
+  <button class="active" onclick="mostrarSeccion('inicio', event)">Inicio</button>
+  <button onclick="mostrarSeccion('categorias', event)">Categorías</button>
+  <button onclick="mostrarSeccion('participantes', event)">Participantes</button>
+  <button onclick="mostrarSeccion('bases', event)">Bases</button>
 </nav>
 
+<!-- ===== SECTIONS ===== -->
 <section id="inicio" class="active">
   <h2>Convocatoria</h2>
   <p class="intro">Impulsa la expresión artística, la autoestima y el compañerismo en un evento único.</p>
@@ -194,6 +229,7 @@
   </div>
 </section>
 
+<!-- ===== MODAL ===== -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <div class="modal-header">
@@ -207,25 +243,24 @@
   </div>
 </div>
 
+<!-- ===== FLOAT BUTTON ===== -->
 <button class="float-btn" onclick="window.open('https://forms.gle/','_blank')">📩 Inscribirme</button>
 
+<!-- ===== FOOTER ===== -->
 <footer>
   <p>© 2025 <strong>Escuela Tlahtoani</strong> — Show de Talentos</p>
 </footer>
 
+<!-- ===== SCRIPT ===== -->
 <script>
   function mostrarSeccion(id, ev){
     document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
     if(ev) ev.target.classList.add('active');
-    document.querySelector('.links').classList.remove('show');
   }
 
-  document.querySelector('.menu-toggle').addEventListener('click',()=>{
-    document.querySelector('.links').classList.toggle('show');
-  });
-
+  // Categorías dinámicas
   const categorias = [
     {titulo:"Canto",icono:"🎤",desc:"Solista, dueto o grupo vocal.",ejemplos:["Balada","Pop","Folclórico"]},
     {titulo:"Baile / Danza",icono:"🕺",desc:"Individual o grupal.",ejemplos:["Folclórico","Moderno","Urbano"]},
@@ -236,7 +271,9 @@
   const grid=document.getElementById('gridCategorias');
   categorias.forEach(c=>{
     const el=document.createElement('div');el.className='card';
-    el.innerHTML=`<span class="pill">Categoría</span><h3><span class="icono">${c.icono}</span>${c.titulo}</h3><p>${c.desc}</p>`;
+    el.innerHTML=`<span class="pill">Categoría</span>
+                  <h3><span class="icono">${c.icono}</span>${c.titulo}</h3>
+                  <p>${c.desc}</p>`;
     el.addEventListener('click',()=>abrirModal(c));
     grid.appendChild(el);
   });
@@ -269,5 +306,6 @@
     document.getElementById('countdown').textContent=`Faltan ${d}d ${h}h ${m}m para el Show`;
   },60000);
 </script>
+
 </body>
 </html>
