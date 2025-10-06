@@ -61,9 +61,24 @@
     .intro{text-align:center;max-width:800px;margin:0 auto 1.2rem;font-size:1rem}
     .hero-img{
       display:block;max-width:720px;width:95%;
-      margin:0 auto 1.6rem;border-radius:16px;
+      margin:0 auto 1.2rem;border-radius:16px;
       box-shadow:0 6px 20px rgba(0,0,0,0.15);
     }
+
+    /* ===== BOTÓN INSCRIPCIÓN ===== */
+    .btn-inscribir{
+      display:inline-block;
+      background:linear-gradient(135deg,var(--secundario),var(--primario));
+      color:#fff;text-decoration:none;
+      padding:0.9rem 1.6rem;
+      border-radius:28px;
+      font-weight:600;
+      font-size:1rem;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2);
+      transition:.3s;
+      margin:1rem auto 0;
+    }
+    .btn-inscribir:hover{transform:scale(1.05);}
 
     /* ===== CARDS ===== */
     .grid{
@@ -101,14 +116,6 @@
     .card p{font-size:.95rem;color:#555}
     .bullet{margin:.4rem 0 .4rem 1rem}
     .bullet li{margin:.15rem 0}
-    .note{
-      background:#f7fafc;
-      border-left:4px solid var(--secundario);
-      padding:.6rem .8rem;
-      border-radius:10px;
-      margin-top:.5rem;
-      font-size:.9rem;
-    }
 
     /* ===== MODAL ===== */
     .modal{
@@ -135,16 +142,6 @@
       font-size:1.3rem;cursor:pointer;
     }
 
-    /* ===== FLOAT BUTTON ===== */
-    .float-btn{
-      position:fixed;bottom:18px;right:18px;
-      background:linear-gradient(135deg,var(--secundario),var(--primario));
-      color:#fff;border:none;padding:0.8rem 1.3rem;border-radius:28px;cursor:pointer;
-      box-shadow:0 5px 14px rgba(0,0,0,0.25);
-      font-weight:600;font-size:.95rem;z-index:250;transition:.3s;
-    }
-    .float-btn:hover{transform:scale(1.05)}
-
     /* ===== FOOTER ===== */
     footer{
       background:linear-gradient(135deg,var(--primario),var(--secundario));
@@ -167,7 +164,7 @@
       header.hero p{font-size:.9rem;}
       h2{font-size:1.5rem;}
       .card h3{font-size:1rem;}
-      .float-btn{font-size:.85rem;padding:.7rem 1rem;}
+      .btn-inscribir{font-size:.9rem;padding:.8rem 1.3rem;}
     }
   </style>
 </head>
@@ -194,6 +191,7 @@
   <h2>Convocatoria</h2>
   <p class="intro">Impulsa la expresión artística, la autoestima y el compañerismo en un evento único.</p>
   <img src="show-talentos.jpg" alt="Estudiantes en el Show de Talentos" class="hero-img"/>
+  <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">📲 Inscribirme</a>
 </section>
 
 <section id="categorias">
@@ -242,9 +240,6 @@
     </div>
   </div>
 </div>
-
-<!-- ===== FLOAT BUTTON ===== -->
-<button class="float-btn" onclick="window.open('https://forms.gle/','_blank')">📩 Inscribirme</button>
 
 <!-- ===== FOOTER ===== -->
 <footer>
