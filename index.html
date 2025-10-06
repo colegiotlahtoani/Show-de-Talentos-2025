@@ -3,31 +3,65 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Show de Talentos 2025 — Escuela Tlahtoani</title>
+  <title>Show de Talentos 2025 — Colegio Tlahtoani</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --primario:#FF6B35;
-      --secundario:#00A5E0;
-      --acento:#FFD166;
+      --primario:#c62828;      /* Rojo navideño */
+      --secundario:#2e7d32;    /* Verde navideño */
+      --acento:#FFD166;        /* Dorado */
       --fondo:#F8F9FA;
       --blanco:#fff;
       --sombra:rgba(0,0,0,0.2);
     }
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-    body{background:var(--fondo);color:#333;line-height:1.6;overflow-x:hidden;}
+    body{
+      background:var(--fondo);
+      color:#333;
+      line-height:1.6;
+      overflow-x:hidden;
+      background-image:url('https://i.ibb.co/0QvXXgw/snow-bg.png');
+      background-size:cover;
+      background-attachment:fixed;
+    }
+
+    /* ===== COPOS DE NIEVE ===== */
+    .snowflakes{
+      position:fixed;
+      top:0;left:0;width:100%;height:100%;
+      pointer-events:none;
+      z-index:300;
+      overflow:hidden;
+    }
+    .snowflake{
+      position:absolute;
+      top:-10px;
+      color:white;
+      font-size:1.2rem;
+      opacity:0.8;
+      animation:fall linear infinite;
+    }
+    @keyframes fall{
+      0%{transform:translateY(0);}
+      100%{transform:translateY(100vh);}
+    }
 
     /* ===== HEADER ===== */
     header.hero{
       background:linear-gradient(135deg,var(--primario),var(--secundario));
       color:var(--blanco);
-      padding:3rem 1rem 2.2rem;
+      padding:3rem 1rem 2rem;
       text-align:center;
       box-shadow:0 6px 20px rgba(0,0,0,0.15);
+      background-image:url('https://i.ibb.co/gRn3rRZ/christmas-pattern.png');
+      background-size:contain;
     }
-    header.hero h1{font-size:2.5rem;font-weight:800;margin-bottom:0.5rem;}
+    header.hero h1{
+      font-size:2.5rem;font-weight:800;margin-bottom:0.5rem;
+      text-shadow:0 3px 5px rgba(0,0,0,0.25);
+    }
     header.hero p{font-size:1.1rem;max-width:650px;margin:0.3rem auto;}
     header.hero .eslogan{font-size:1.2rem;font-weight:600;font-style:italic;}
     #countdown{margin-top:1rem;font-weight:600;font-size:1rem;}
@@ -53,6 +87,9 @@
     section{
       max-width:1100px;margin:1.8rem auto;padding:0 1rem 2rem;
       display:none;animation:fadeIn .5s ease;
+      background:rgba(255,255,255,0.85);
+      border-radius:16px;
+      box-shadow:0 4px 14px rgba(0,0,0,0.1);
     }
     section.active{display:block;}
     @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
@@ -70,15 +107,18 @@
       display:inline-block;
       background:linear-gradient(135deg,var(--secundario),var(--primario));
       color:#fff;text-decoration:none;
-      padding:1rem 2.2rem;
-      border-radius:32px;
+      padding:1rem 2.5rem;
+      border-radius:35px;
       font-weight:700;
       font-size:1.3rem;
       box-shadow:0 4px 14px rgba(0,0,0,0.25);
       transition:.3s;
       margin:1.5rem auto 0;
     }
-    .btn-inscribir:hover{transform:scale(1.07);}
+    .btn-inscribir:hover{
+      transform:scale(1.07);
+      background:linear-gradient(135deg,var(--primario),var(--secundario));
+    }
 
     /* ===== CARDS ===== */
     .grid{
@@ -87,8 +127,7 @@
     }
     .card{
       position:relative;
-      background:rgba(255,255,255,0.95);
-      backdrop-filter:blur(6px);
+      background:rgba(255,255,255,0.9);
       border-radius:16px;
       padding:2.2rem 1.1rem 1.2rem;
       text-align:left;
@@ -151,6 +190,8 @@
       font-size:.9rem;font-weight:500;
       margin-top:2rem;
       position:relative;
+      background-image:url('https://i.ibb.co/gRn3rRZ/christmas-pattern.png');
+      background-size:contain;
     }
     footer::before{
       content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--acento);
@@ -170,15 +211,22 @@
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- Copos de nieve -->
+<div class="snowflakes" aria-hidden="true">
+  <div class="snowflake">❄️</div>
+  <div class="snowflake">❅</div>
+  <div class="snowflake">❆</div>
+  <div class="snowflake">❄️</div>
+  <div class="snowflake">❅</div>
+</div>
+
 <header class="hero">
-  <h1>Show de Talentos 2025 — Tlahtoani</h1>
-  <p class="eslogan">Creatividad y arte en escena 🎭✨</p>
-  <p>¡Inscribe tu talento y brilla en el escenario!</p>
+  <h1>🎄 Show de Talentos 2025 — Colegio Tlahtoani 🎄</h1>
+  <p class="eslogan">Creatividad, arte y espíritu navideño en escena ✨</p>
+  <p>¡Inscribe tu talento y celebra esta temporada brillando en el escenario!</p>
   <h3 id="countdown"></h3>
 </header>
 
-<!-- ===== NAV ===== -->
 <nav>
   <button class="active" onclick="mostrarSeccion('inicio', event)">Inicio</button>
   <button onclick="mostrarSeccion('categorias', event)">Categorías</button>
@@ -186,49 +234,45 @@
   <button onclick="mostrarSeccion('bases', event)">Bases</button>
 </nav>
 
-<!-- ===== SECTIONS ===== -->
 <section id="inicio" class="active">
-  <h2>Convocatoria</h2>
-  <p class="intro">Participa en un evento donde la creatividad, el arte y el compañerismo se unen para brillar en el escenario.</p>
-  
-  <!-- NUEVA IMAGEN BANNER -->
-  <img src="Show de Talentos 2025 en Tlahtoani.png" alt="Show de Talentos 2025 — Banner Oficial" class="hero-img"/>
-
+  <h2>Convocatoria Navideña</h2>
+  <p class="intro">Participa en un show lleno de alegría, creatividad y el espíritu navideño. ¡Haz brillar tu talento!</p>
+  <img src="show-talentos.jpg" alt="Show de Talentos 2025 — Banner Oficial" class="hero-img"/>
   <div style="text-align:center;">
-    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">📲 Inscribirme</a>
+    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
   </div>
 </section>
 
 <section id="categorias">
-  <h2>Categorías de Participación</h2>
-  <p class="intro">Canto, danza, música, teatro y talentos variados. ¡Escoge tu estilo!</p>
+  <h2>🎁 Categorías de Participación</h2>
+  <p class="intro">Canto, danza, música, teatro y talentos variados. ¡Escoge tu estilo y celebra la navidad con tu talento!</p>
   <div class="grid" id="gridCategorias"></div>
   <div style="text-align:center;">
-    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">📲 Inscribirme</a>
+    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
   </div>
 </section>
 
 <section id="participantes">
-  <h2>De los Participantes</h2>
-  <p class="intro">Reglas de inscripción y participación.</p>
+  <h2>🎄 De los Participantes</h2>
+  <p class="intro">Reglas de inscripción y participación para nuestro especial navideño.</p>
   <div class="grid">
     <div class="card">
       <span class="pill">Quiénes</span>
       <h3><span class="icono">👥</span>Pueden participar</h3>
       <ul class="bullet">
-        <li>Todos los alumnos de la Escuela Tlahtoani.</li>
+        <li>Todos los alumnos del Colegio Tlahtoani.</li>
         <li>Individual o grupal (pueden mezclar grados).</li>
         <li>Solo se permite una participación por alumno.</li>
       </ul>
     </div>
   </div>
   <div style="text-align:center;">
-    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">📲 Inscribirme</a>
+    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
   </div>
 </section>
 
 <section id="bases">
-  <h2>Bases y Requisitos</h2>
+  <h2>✨ Bases y Requisitos</h2>
   <div class="grid">
     <div class="card"><span class="pill">Duración</span><h3>⏱️ Máximo 5 minutos</h3></div>
     <div class="card"><span class="pill">Contenido</span><h3>🛡️ Apropiado</h3><p>Sin lenguaje vulgar ni violencia.</p></div>
@@ -237,11 +281,10 @@
     <div class="card"><span class="pill">Originalidad</span><h3>✨ Creatividad</h3></div>
   </div>
   <div style="text-align:center;">
-    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">📲 Inscribirme</a>
+    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
   </div>
 </section>
 
-<!-- ===== MODAL ===== -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <div class="modal-header">
@@ -255,12 +298,10 @@
   </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
 <footer>
-  <p>© 2025 <strong>Escuela Tlahtoani</strong> — Show de Talentos</p>
+  <p>© 2025 <strong>Colegio Tlahtoani</strong> — Show de Talentos Navideño 🎄</p>
 </footer>
 
-<!-- ===== SCRIPT ===== -->
 <script>
   function mostrarSeccion(id, ev){
     document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
@@ -271,11 +312,11 @@
 
   // Categorías dinámicas
   const categorias = [
-    {titulo:"Canto",icono:"🎤",desc:"Solista, dueto o grupo vocal.",ejemplos:["Balada","Pop","Folclórico"]},
-    {titulo:"Baile / Danza",icono:"🕺",desc:"Individual o grupal.",ejemplos:["Folclórico","Moderno","Urbano"]},
-    {titulo:"Música Instrumental",icono:"🎸",desc:"Solista o ensamble.",ejemplos:["Piano","Guitarra","Banda"]},
-    {titulo:"Actuación / Teatro",icono:"🎭",desc:"Monólogo, sketch o declamación.",ejemplos:["Stand-up","Obra corta"]},
-    {titulo:"Talento Variado",icono:"✨",desc:"Magia, poesía, dibujo en vivo.",ejemplos:["Malabares","Artes marciales","Magia"]}
+    {titulo:"Canto Navideño",icono:"🎤",desc:"Solista, dueto o grupo vocal.",ejemplos:["Villancicos","Pop navideño","Coro"]},
+    {titulo:"Baile / Danza",icono:"🕺",desc:"Individual o grupal.",ejemplos:["Folclórico","Moderno","Navideño"]},
+    {titulo:"Música Instrumental",icono:"🎸",desc:"Solista o ensamble.",ejemplos:["Piano","Guitarra","Orquesta"]},
+    {titulo:"Actuación / Teatro",icono:"🎭",desc:"Monólogo, sketch o declamación.",ejemplos:["Obra navideña","Cuento de Navidad"]},
+    {titulo:"Talento Variado",icono:"✨",desc:"Magia, poesía, dibujo en vivo.",ejemplos:["Malabares","Artes marciales","Show creativo"]}
   ];
   const grid=document.getElementById('gridCategorias');
   categorias.forEach(c=>{
@@ -301,7 +342,7 @@
   window.addEventListener('keydown',e=>{if(e.key==="Escape")cerrarModal();});
 
   // Contador regresivo
-  const evento=new Date("2025-11-15T18:00:00").getTime();
+  const evento=new Date("2025-12-20T18:00:00").getTime();
   setInterval(()=>{
     const ahora=new Date().getTime();
     let diff=evento-ahora;
@@ -312,8 +353,16 @@
     const d=Math.floor(diff/(1000*60*60*24));
     const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
     const m=Math.floor((diff%(1000*60*60))/(1000*60));
-    document.getElementById('countdown').textContent=`Faltan ${d}d ${h}h ${m}m para el Show`;
+    document.getElementById('countdown').textContent=`🎅 Faltan ${d}d ${h}h ${m}m para el Show Navideño`;
   },60000);
+
+  // Animación copos de nieve
+  const snowflakes=document.querySelectorAll('.snowflake');
+  snowflakes.forEach(sf=>{
+    sf.style.left=Math.random()*100+'vw';
+    sf.style.animationDuration=3+Math.random()*5+'s';
+    sf.style.fontSize=0.8+Math.random()*1.5+'rem';
+  });
 </script>
 
 </body>
