@@ -9,16 +9,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --primario:#c62828;      /* Rojo navideño */
-      --secundario:#2e7d32;    /* Verde navideño */
-      --acento:#FFD166;        /* Dorado */
+      --primario:#c62828;
+      --secundario:#2e7d32;
+      --acento:#FFD166;
       --blanco:#fff;
       --gris:#f6f6f6;
     }
 
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-    /* 🎅 Fondo navideño */
     body{
       background: linear-gradient(135deg, #c62828 0%, #2e7d32 100%);
       background-attachment: fixed;
@@ -28,56 +27,30 @@
       overflow-x:hidden;
     }
 
-    /* ❄️ Copos de nieve animados */
+    /* Copos de nieve */
     .snowflakes{
-      position:fixed;
-      top:0;left:0;width:100%;height:100%;
-      pointer-events:none;
-      z-index:300;
+      position:fixed;top:0;left:0;width:100%;height:100%;
+      pointer-events:none;z-index:300;
     }
     .snowflake{
-      position:absolute;
-      top:-10px;
-      color:white;
-      font-size:1.2rem;
-      opacity:0.8;
-      animation:fall linear infinite;
-      text-shadow:0 0 8px rgba(255,255,255,0.8);
+      position:absolute;top:-10px;color:white;font-size:1.2rem;opacity:0.8;
+      animation:fall linear infinite;text-shadow:0 0 8px rgba(255,255,255,0.8);
     }
-    @keyframes fall{
-      0%{transform:translateY(0);}
-      100%{transform:translateY(100vh);}
-    }
+    @keyframes fall{0%{transform:translateY(0);}100%{transform:translateY(100vh);}}
 
-    /* 🟥 Header */
+    /* Header */
     header.hero{
-      background:rgba(0,0,0,0.35);
-      backdrop-filter: blur(4px);
-      color:var(--blanco);
-      padding:3rem 1rem 2rem;
-      text-align:center;
-      box-shadow:0 6px 25px rgba(0,0,0,0.25);
-      border-bottom: 4px solid var(--acento);
+      background:rgba(0,0,0,0.35);backdrop-filter: blur(4px);
+      color:var(--blanco);padding:3rem 1rem 2rem;text-align:center;
+      box-shadow:0 6px 25px rgba(0,0,0,0.25);border-bottom: 4px solid var(--acento);
     }
-    header.hero h1{
-      font-size:2.6rem;
-      font-weight:800;
-      margin-bottom:0.5rem;
-      text-shadow:0 3px 6px rgba(0,0,0,0.4);
-    }
-    header.hero .eslogan{
-      font-size:1.2rem;
-      font-weight:600;
-      font-style:italic;
-      color:var(--acento);
-      margin-bottom:0.5rem;
-    }
+    header.hero h1{font-size:2.6rem;font-weight:800;margin-bottom:0.5rem;text-shadow:0 3px 6px rgba(0,0,0,0.4);}
+    header.hero .eslogan{font-size:1.2rem;font-weight:600;font-style:italic;color:var(--acento);margin-bottom:0.5rem;}
     #countdown{margin-top:1rem;font-weight:600;font-size:1rem;color:var(--acento);}
 
-    /* 🟩 Navegación */
+    /* Menú */
     nav{
-      background:var(--blanco);
-      padding:0.8rem 1rem;
+      background:var(--blanco);padding:0.8rem 1rem;
       box-shadow:0 4px 14px rgba(0,0,0,0.15);
       position:sticky;top:0;z-index:100;
       display:flex;justify-content:center;gap:0.6rem;flex-wrap:wrap;
@@ -95,7 +68,7 @@
       box-shadow:0 4px 12px rgba(0,0,0,0.15);
     }
 
-    /* ✨ Secciones */
+    /* Secciones */
     section{
       max-width:1000px;margin:2rem auto;padding:2rem 1.2rem;
       display:none;animation:fadeIn .7s ease;
@@ -107,14 +80,40 @@
     @keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
     h2{text-align:center;font-size:2rem;color:var(--primario);margin-bottom:1rem;text-shadow:0 2px 6px rgba(0,0,0,0.15);}
-    .intro{text-align:center;max-width:860px;margin:0 auto 1.2rem;font-size:1.05rem}
-    .hero-img{
-      display:block;max-width:850px;width:95%;
-      margin:0 auto 1.5rem;border-radius:20px;
-      box-shadow:0 8px 25px rgba(0,0,0,0.25);
+
+    /* Tarjetas uniformes */
+    .grid{
+      display:grid;
+      gap:1rem;
+      margin-top:1rem;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    }
+    .card{
+      background:var(--gris);
+      border-radius:20px;
+      padding:1.4rem 1rem 1.2rem;
+      text-align:left;
+      box-shadow:0 6px 15px rgba(0,0,0,0.1);
       transition:.3s;
     }
-    .hero-img:hover{transform:scale(1.02);}
+    .card:hover{
+      transform:translateY(-7px) scale(1.02);
+      box-shadow:0 12px 30px rgba(0,0,0,0.25);
+    }
+    .pill{
+      background:var(--acento);
+      color:#333;
+      font-size:.8rem;
+      font-weight:700;
+      padding:.25rem .75rem;
+      border-radius:14px;
+      display:inline-block;
+      margin-bottom:0.6rem;
+    }
+    .card h3{font-size:1.1rem;color:var(--primario);margin:.3rem 0;font-weight:700}
+    .card p, .card ul{font-size:0.95rem;margin-top:.4rem;line-height:1.6;}
+    ul{padding-left:1.2rem;}
+    li{margin:.3rem 0;}
 
     /* Botón inscripción */
     .btn-inscribir{
@@ -134,44 +133,6 @@
       background:linear-gradient(135deg,var(--primario),var(--secundario));
     }
 
-    /* Texto */
-    .texto{max-width:850px;margin:0 auto;font-size:1.05rem}
-    .texto p{margin:.6rem 0;text-align:justify;}
-    ul{margin:.5rem 0 .8rem 1.2rem}
-    li{margin:.3rem 0}
-
-    /* Cards y grid */
-    .grid{
-      display:grid;gap:1rem;margin-top:1rem;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    }
-    .card{
-      position:relative;
-      background:var(--gris);
-      border-radius:20px;
-      padding:1.4rem 1rem 1.2rem;
-      text-align:left;
-      box-shadow:0 6px 15px rgba(0,0,0,0.1);
-      transition:.3s;
-    }
-    .card:hover{
-      transform:translateY(-7px) scale(1.02);
-      box-shadow:0 12px 30px rgba(0,0,0,0.25);
-    }
-    .pill{
-      position:absolute;
-      top:-12px;left:14px;
-      background:var(--acento);
-      color:#333;
-      font-size:.8rem;
-      font-weight:700;
-      padding:.25rem .75rem;
-      border-radius:14px;
-    }
-    .icono{font-size:1.2rem;margin-right:.4rem}
-    .card h3{font-size:1.05rem;color:var(--primario);margin:.2rem 0 .4rem;font-weight:700}
-
-    /* Footer */
     footer{
       background:rgba(0,0,0,0.35);
       color:#fff;
@@ -183,16 +144,11 @@
       border-top: 4px solid var(--acento);
     }
 
-    /* 📱 RESPONSIVE */
     @media (max-width: 768px) {
       header.hero h1 { font-size: 2rem; }
-      header.hero .eslogan { font-size: 1rem; }
       nav { flex-direction: column; gap: 0.5rem; }
       .btn-inscribir { font-size: 1.05rem; padding: 0.8rem 1.5rem; }
-      .hero-img { width: 100%; }
       h2 { font-size: 1.6rem; }
-      .card { padding: 1.1rem 1rem; }
-      .texto { padding: 0 .2rem; }
     }
     @media (max-width: 480px) {
       header.hero h1 { font-size: 1.6rem; }
@@ -203,7 +159,7 @@
 </head>
 <body>
 
-<!-- ❄️ Copos de nieve -->
+<!-- Copos -->
 <div class="snowflakes" aria-hidden="true">
   <div class="snowflake">❄️</div>
   <div class="snowflake">❅</div>
@@ -224,16 +180,18 @@
   <button onclick="mostrarSeccion('objetivo', event)">Objetivo</button>
   <button onclick="mostrarSeccion('categorias', event)">Categorías</button>
   <button onclick="mostrarSeccion('participantes', event)">Participantes</button>
-  <button onclick="mostrarSeccion('bases', event)">Bases y Requisitos</button>
+  <button onclick="mostrarSeccion('bases', event)">Bases</button>
 </nav>
 
 <!-- INICIO -->
 <section id="inicio" class="active">
   <h2>✨ Convocatoria Navideña ✨</h2>
-  <p class="intro">¡SHOW DE TALENTOS ESCUELA TLAHTOANI!<br>“Donde la creatividad y el arte cobran vida”</p>
-  <img src="https://i.ibb.co/3cWnCFz/navidad-banner.jpg" alt="Show de Talentos 2025" class="hero-img"/>
-  <div class="texto">
-    <p>La Dirección de la Escuela Tlahtoani convoca a toda su comunidad estudiantil a participar en el emocionante Show de Talentos 2025, un espacio diseñado para que nuestros alumnos demuestren sus habilidades, talentos y creatividad en el escenario.</p>
+  <div class="grid">
+    <div class="card">
+      <span class="pill">Convocatoria</span>
+      <h3>Show de Talentos 2025</h3>
+      <p>“Donde la creatividad y el arte cobran vida”. La Dirección de la Escuela Tlahtoani convoca a toda su comunidad estudiantil a participar en este emocionante evento, diseñado para que nuestros alumnos demuestren sus habilidades, talentos y creatividad en el escenario.</p>
+    </div>
   </div>
   <div style="text-align:center;">
     <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
@@ -243,33 +201,32 @@
 <!-- OBJETIVO -->
 <section id="objetivo">
   <h2>📝 I. Objetivo</h2>
-  <div class="texto">
-    <p>Fomentar la expresión artística, el desarrollo de la autoestima y el compañerismo, ofreciendo a los estudiantes una plataforma para compartir sus talentos con toda la comunidad escolar.</p>
-  </div>
-  <div style="text-align:center;">
-    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
+  <div class="grid">
+    <div class="card">
+      <span class="pill">Objetivo</span>
+      <p>Fomentar la expresión artística, el desarrollo de la autoestima y el compañerismo, ofreciendo a los estudiantes una plataforma para compartir sus talentos con toda la comunidad escolar.</p>
+    </div>
   </div>
 </section>
 
 <!-- CATEGORÍAS -->
 <section id="categorias">
   <h2>🎁 II. Categorías de Participación</h2>
-  <p class="intro">El show está abierto a cualquier manifestación artística y/o habilidad que pueda presentarse en un escenario.</p>
   <div class="grid" id="gridCategorias"></div>
 </section>
 
 <!-- PARTICIPANTES -->
 <section id="participantes">
   <h2>👥 III. De los Participantes</h2>
-  <div class="texto">
-    <ul>
-      <li>Podrán participar todos los alumnos.</li>
-      <li>La participación puede ser individual o grupal. Los grupos pueden estar conformados por estudiantes de diferentes grados (Los ensayos será de manera externa).</li>
-      <li>Cada estudiante solo podrá participar en una (1) ocasión, ya sea de forma individual o como miembro de un grupo.</li>
-    </ul>
-  </div>
-  <div style="text-align:center;">
-    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
+  <div class="grid">
+    <div class="card">
+      <span class="pill">Reglas</span>
+      <ul>
+        <li>Podrán participar todos los alumnos.</li>
+        <li>La participación puede ser individual o grupal. Los grupos pueden estar conformados por estudiantes de diferentes grados (Los ensayos será de manera externa).</li>
+        <li>Cada estudiante solo podrá participar en una (1) ocasión, ya sea de forma individual o como miembro de un grupo.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -284,9 +241,6 @@
     <div class="card"><span class="pill">Originalidad</span><h3>✨ Creatividad</h3><p>Se valorará la creatividad y originalidad.</p></div>
     <div class="card"><span class="pill">Eliminatoria</span><h3>🏆 Etapa previa</h3><p>Habrá etapa de eliminatoria. Se deben cumplir las rúbricas establecidas para presentarse en el evento final.</p></div>
   </div>
-  <div style="text-align:center;">
-    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
-  </div>
 </section>
 
 <footer>
@@ -294,7 +248,6 @@
 </footer>
 
 <script>
-  // Cambiar secciones activas
   function mostrarSeccion(id, ev){
     document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
@@ -302,7 +255,6 @@
     if(ev) ev.target.classList.add('active');
   }
 
-  // Crear tarjetas de categorías
   const categorias = [
     {titulo:"Canto", icono:"🎤", desc:"Solista, dueto, o grupo vocal."},
     {titulo:"Baile/Danza", icono:"🕺", desc:"Individual o grupal (folclórico, moderno, urbano, etc.)."},
@@ -319,7 +271,6 @@
     grid.appendChild(el);
   });
 
-  // Contador regresivo
   const evento=new Date("2025-12-20T18:00:00").getTime();
   function renderCountdown(){
     const ahora=new Date().getTime();
@@ -334,7 +285,6 @@
   renderCountdown();
   setInterval(renderCountdown,60000);
 
-  // Animación copos
   const snowflakes=document.querySelectorAll('.snowflake');
   snowflakes.forEach(sf=>{
     sf.style.left=Math.random()*100+'vw';
