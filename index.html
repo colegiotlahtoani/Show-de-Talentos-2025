@@ -44,9 +44,14 @@
       color:var(--blanco);padding:3rem 1rem 2rem;text-align:center;
       box-shadow:0 6px 25px rgba(0,0,0,0.25);border-bottom: 4px solid var(--acento);
     }
-    header.hero h1{font-size:2.6rem;font-weight:800;margin-bottom:0.5rem;text-shadow:0 3px 6px rgba(0,0,0,0.4);}
-    header.hero .eslogan{font-size:1.2rem;font-weight:600;font-style:italic;color:var(--acento);margin-bottom:0.5rem;}
-    #countdown{margin-top:1rem;font-weight:600;font-size:1rem;color:var(--acento);}
+    header.hero h1{
+      font-size:2.6rem;font-weight:800;margin-bottom:0.5rem;
+      text-shadow:0 3px 6px rgba(0,0,0,0.4);
+    }
+    header.hero .eslogan{
+      font-size:1.2rem;font-weight:600;font-style:italic;
+      color:var(--acento);margin-bottom:0.5rem;
+    }
 
     /* Menú */
     nav{
@@ -171,8 +176,6 @@
 <header class="hero">
   <h1>🎄 Show de Talentos 2025 — Colegio Tlahtoani 🎁</h1>
   <p class="eslogan">Creatividad, arte y espíritu navideño en escena ✨</p>
-  <p>¡Inscribe tu talento y celebra esta temporada brillando en el escenario!</p>
-  <h3 id="countdown"></h3>
 </header>
 
 <nav>
@@ -200,7 +203,7 @@
 
 <!-- OBJETIVO -->
 <section id="objetivo">
-  <h2>📝 I. Objetivo</h2>
+  <h2>Objetivo</h2>
   <div class="grid">
     <div class="card">
       <span class="pill">Objetivo</span>
@@ -211,13 +214,13 @@
 
 <!-- CATEGORÍAS -->
 <section id="categorias">
-  <h2>🎁 II. Categorías de Participación</h2>
+  <h2>Categorías de Participación</h2>
   <div class="grid" id="gridCategorias"></div>
 </section>
 
 <!-- PARTICIPANTES -->
 <section id="participantes">
-  <h2>👥 III. De los Participantes</h2>
+  <h2>Participantes</h2>
   <div class="grid">
     <div class="card">
       <span class="pill">Reglas</span>
@@ -232,7 +235,7 @@
 
 <!-- BASES -->
 <section id="bases">
-  <h2>✨ IV. Bases y Requisitos de la Presentación</h2>
+  <h2>Bases y Requisitos de la Presentación</h2>
   <div class="grid">
     <div class="card"><span class="pill">Duración</span><h3>⏱️ Máximo 5 minutos</h3><p>Cada número artístico deberá tener una duración máxima de 5 minutos.</p></div>
     <div class="card"><span class="pill">Contenido</span><h3>🛡️ Apropiado</h3><p>El contenido debe ser apropiado para todas las edades. Se prohíbe lenguaje vulgar, violencia, discriminación o incitación a sustancias.</p></div>
@@ -271,20 +274,7 @@
     grid.appendChild(el);
   });
 
-  const evento=new Date("2025-12-20T18:00:00").getTime();
-  function renderCountdown(){
-    const ahora=new Date().getTime();
-    const diff=evento-ahora;
-    const el=document.getElementById('countdown');
-    if(diff<=0){ el.textContent="🎉 ¡El show ha comenzado!"; return; }
-    const d=Math.floor(diff/(1000*60*60*24));
-    const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-    const m=Math.floor((diff%(1000*60*60))/(1000*60));
-    el.textContent=`🎅 Faltan ${d}d ${h}h ${m}m para el Show Navideño`;
-  }
-  renderCountdown();
-  setInterval(renderCountdown,60000);
-
+  // ❄️ Animación copos
   const snowflakes=document.querySelectorAll('.snowflake');
   snowflakes.forEach(sf=>{
     sf.style.left=Math.random()*100+'vw';
