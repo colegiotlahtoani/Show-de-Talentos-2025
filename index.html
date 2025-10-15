@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Show de Talentos 2025 — Colegio Tlahtoani</title>
+  <title>🎄 Show de Talentos 2025 — Colegio Tlahtoani 🎁</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -12,14 +12,14 @@
       --primario:#c62828;      /* Rojo navideño */
       --secundario:#2e7d32;    /* Verde navideño */
       --acento:#FFD166;        /* Dorado */
-      --fondo:#F8F9FA;
+      --fondo:#f7f9fc;
       --blanco:#fff;
       --sombra:rgba(0,0,0,0.2);
     }
+
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
     body{
-      background:var(--fondo);
-      color:#333;
+      background:linear-gradient(120deg, #f8f9fa 0%, #f1f1f1 100%);
       line-height:1.6;
       overflow-x:hidden;
       background-image:url('https://i.ibb.co/0QvXXgw/snow-bg.png');
@@ -27,21 +27,21 @@
       background-attachment:fixed;
     }
 
-    /* ===== COPOS DE NIEVE ===== */
+    /* ===== EFECTO NIEVE ===== */
     .snowflakes{
       position:fixed;
       top:0;left:0;width:100%;height:100%;
       pointer-events:none;
       z-index:300;
-      overflow:hidden;
     }
     .snowflake{
       position:absolute;
       top:-10px;
       color:white;
       font-size:1.2rem;
-      opacity:0.8;
+      opacity:0.9;
       animation:fall linear infinite;
+      text-shadow:0 0 8px rgba(255,255,255,0.8);
     }
     @keyframes fall{
       0%{transform:translateY(0);}
@@ -54,53 +54,68 @@
       color:var(--blanco);
       padding:3rem 1rem 2rem;
       text-align:center;
-      box-shadow:0 6px 20px rgba(0,0,0,0.15);
+      box-shadow:0 6px 25px rgba(0,0,0,0.25);
       background-image:url('https://i.ibb.co/gRn3rRZ/christmas-pattern.png');
       background-size:contain;
+      border-bottom: 5px solid var(--acento);
     }
     header.hero h1{
-      font-size:2.5rem;font-weight:800;margin-bottom:0.5rem;
-      text-shadow:0 3px 5px rgba(0,0,0,0.25);
+      font-size:2.8rem;
+      font-weight:800;
+      margin-bottom:0.5rem;
+      text-shadow:0 3px 6px rgba(0,0,0,0.4);
     }
-    header.hero p{font-size:1.1rem;max-width:650px;margin:0.3rem auto;}
-    header.hero .eslogan{font-size:1.2rem;font-weight:600;font-style:italic;}
-    #countdown{margin-top:1rem;font-weight:600;font-size:1rem;}
+    header.hero p{font-size:1.15rem;max-width:650px;margin:0.4rem auto;}
+    header.hero .eslogan{
+      font-size:1.25rem;
+      font-weight:600;
+      font-style:italic;
+      color:var(--acento);
+    }
+    #countdown{margin-top:1rem;font-weight:600;font-size:1rem;color:var(--acento);}
 
     /* ===== NAV ===== */
     nav{
       background:var(--blanco);
       padding:0.7rem 1rem;
-      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      box-shadow:0 4px 14px rgba(0,0,0,0.15);
       position:sticky;top:0;z-index:100;
       display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;
+      border-bottom: 2px solid var(--acento);
     }
     nav button{
-      background:none;border:none;padding:0.6rem 1.2rem;font-size:1rem;
-      cursor:pointer;border-radius:20px;transition:.25s;font-weight:600;color:#333;
+      background:none;border:none;
+      padding:0.6rem 1.2rem;font-size:1rem;
+      cursor:pointer;border-radius:25px;
+      transition:.3s;font-weight:600;color:#333;
     }
     nav button:hover,nav button.active{
       background:var(--acento);
       color:#333;
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
     }
 
     /* ===== SECTIONS ===== */
     section{
       max-width:1100px;margin:1.8rem auto;padding:0 1rem 2rem;
-      display:none;animation:fadeIn .5s ease;
-      background:rgba(255,255,255,0.85);
-      border-radius:16px;
-      box-shadow:0 4px 14px rgba(0,0,0,0.1);
+      display:none;animation:fadeIn .7s ease;
+      background:rgba(255,255,255,0.92);
+      border-radius:20px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.15);
+      backdrop-filter:blur(3px);
     }
     section.active{display:block;}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-    h2{text-align:center;font-size:1.8rem;color:var(--primario);margin-bottom:.7rem}
+    h2{text-align:center;font-size:1.9rem;color:var(--primario);margin-bottom:.8rem;text-shadow:0 2px 6px rgba(0,0,0,0.15);}
     .intro{text-align:center;max-width:800px;margin:0 auto 1.2rem;font-size:1rem}
     .hero-img{
       display:block;max-width:900px;width:95%;
-      margin:0 auto 1.2rem;border-radius:16px;
-      box-shadow:0 6px 20px rgba(0,0,0,0.2);
+      margin:0 auto 1.5rem;border-radius:20px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.25);
+      transition:.3s;
     }
+    .hero-img:hover{transform:scale(1.02);}
 
     /* ===== BOTÓN INSCRIPCIÓN ===== */
     .btn-inscribir{
@@ -111,13 +126,14 @@
       border-radius:35px;
       font-weight:700;
       font-size:1.3rem;
-      box-shadow:0 4px 14px rgba(0,0,0,0.25);
+      box-shadow:0 6px 20px rgba(0,0,0,0.25);
       transition:.3s;
       margin:1.5rem auto 0;
     }
     .btn-inscribir:hover{
-      transform:scale(1.07);
+      transform:scale(1.08);
       background:linear-gradient(135deg,var(--primario),var(--secundario));
+      box-shadow:0 8px 25px rgba(0,0,0,0.35);
     }
 
     /* ===== CARDS ===== */
@@ -127,17 +143,17 @@
     }
     .card{
       position:relative;
-      background:rgba(255,255,255,0.9);
-      border-radius:16px;
+      background:rgba(255,255,255,0.95);
+      border-radius:20px;
       padding:2.2rem 1.1rem 1.2rem;
       text-align:left;
       border:1px solid transparent;
-      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      box-shadow:0 6px 15px rgba(0,0,0,0.1);
       transition:.3s;
     }
     .card:hover{
-      transform:translateY(-5px);
-      box-shadow:0 10px 20px rgba(0,0,0,0.15);
+      transform:translateY(-7px) scale(1.02);
+      box-shadow:0 12px 30px rgba(0,0,0,0.25);
     }
     .pill{
       position:absolute;
@@ -148,60 +164,35 @@
       font-weight:700;
       padding:.25rem .75rem;
       border-radius:14px;
-      box-shadow:0 3px 8px rgba(0,0,0,0.1);
+      box-shadow:0 3px 8px rgba(0,0,0,0.15);
     }
-    .icono{font-size:1.5rem;margin-right:.5rem}
+    .icono{font-size:1.6rem;margin-right:.5rem}
     .card h3{font-size:1.1rem;color:var(--primario);margin:.2rem 0 .4rem;font-weight:700}
     .card p{font-size:.95rem;color:#555}
     .bullet{margin:.4rem 0 .4rem 1rem}
     .bullet li{margin:.15rem 0}
-
-    /* ===== MODAL ===== */
-    .modal{
-      display:none;position:fixed;inset:0;
-      background:rgba(0,0,0,.45);
-      backdrop-filter:blur(3px);
-      justify-content:center;align-items:center;
-      z-index:200;
-    }
-    .modal-content{
-      background:#fff;border-radius:18px;max-width:600px;width:92%;
-      box-shadow:0 8px 25px rgba(0,0,0,.25);
-      animation:fadeIn .35s ease;
-      position:relative;
-    }
-    .modal-header{
-      background:linear-gradient(135deg,var(--primario),var(--secundario));
-      padding:1.2rem;color:#fff;text-align:center;font-weight:600;
-    }
-    .modal-body{padding:1rem 1.2rem 1.4rem;font-size:.95rem;}
-    .modal-close{
-      position:absolute;right:14px;top:10px;
-      background:transparent;border:none;color:#fff;
-      font-size:1.3rem;cursor:pointer;
-    }
 
     /* ===== FOOTER ===== */
     footer{
       background:linear-gradient(135deg,var(--primario),var(--secundario));
       color:#fff;
       text-align:center;
-      padding:1.2rem;
-      font-size:.9rem;font-weight:500;
+      padding:1.5rem;
+      font-size:.95rem;font-weight:500;
       margin-top:2rem;
       position:relative;
       background-image:url('https://i.ibb.co/gRn3rRZ/christmas-pattern.png');
       background-size:contain;
+      border-top: 4px solid var(--acento);
     }
     footer::before{
       content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--acento);
     }
 
-    /* ===== MEDIA QUERIES ===== */
     @media(max-width:600px){
       nav{gap:.5rem;flex-wrap:wrap;}
       nav button{font-size:.9rem;padding:.5rem .8rem;}
-      header.hero h1{font-size:2rem;}
+      header.hero h1{font-size:2.1rem;}
       header.hero p{font-size:1rem;}
       h2{font-size:1.5rem;}
       .card h3{font-size:1rem;}
@@ -221,7 +212,7 @@
 </div>
 
 <header class="hero">
-  <h1>🎄 Show de Talentos 2025 — Colegio Tlahtoani 🎄</h1>
+  <h1>🎄 Show de Talentos 2025 — Colegio Tlahtoani 🎁</h1>
   <p class="eslogan">Creatividad, arte y espíritu navideño en escena ✨</p>
   <p>¡Inscribe tu talento y celebra esta temporada brillando en el escenario!</p>
   <h3 id="countdown"></h3>
@@ -235,7 +226,7 @@
 </nav>
 
 <section id="inicio" class="active">
-  <h2>Convocatoria Navideña</h2>
+  <h2>✨ Convocatoria Navideña ✨</h2>
   <p class="intro">Participa en un show lleno de alegría, creatividad y el espíritu navideño. ¡Haz brillar tu talento!</p>
   <img src="show-talentos.jpg" alt="Show de Talentos 2025 — Banner Oficial" class="hero-img"/>
   <div style="text-align:center;">
@@ -285,19 +276,6 @@
   </div>
 </section>
 
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button class="modal-close" onclick="cerrarModal()">✕</button>
-      <h3 id="modalTitulo"></h3>
-    </div>
-    <div class="modal-body">
-      <p id="modalDesc"></p>
-      <ul class="bullet" id="modalEjemplos"></ul>
-    </div>
-  </div>
-</div>
-
 <footer>
   <p>© 2025 <strong>Colegio Tlahtoani</strong> — Show de Talentos Navideño 🎄</p>
 </footer>
@@ -310,7 +288,6 @@
     if(ev) ev.target.classList.add('active');
   }
 
-  // Categorías dinámicas
   const categorias = [
     {titulo:"Canto Navideño",icono:"🎤",desc:"Solista, dueto o grupo vocal.",ejemplos:["Villancicos","Pop navideño","Coro"]},
     {titulo:"Baile / Danza",icono:"🕺",desc:"Individual o grupal.",ejemplos:["Folclórico","Moderno","Navideño"]},
@@ -324,30 +301,16 @@
     el.innerHTML=`<span class="pill">Categoría</span>
                   <h3><span class="icono">${c.icono}</span>${c.titulo}</h3>
                   <p>${c.desc}</p>`;
-    el.addEventListener('click',()=>abrirModal(c));
+    el.addEventListener('click',()=>alert(`Ejemplos: ${c.ejemplos.join(", ")}`));
     grid.appendChild(el);
   });
 
-  function abrirModal(c){
-    document.getElementById('modalTitulo').textContent=c.titulo;
-    document.getElementById('modalDesc').textContent=c.desc;
-    const ul=document.getElementById('modalEjemplos');ul.innerHTML='';
-    c.ejemplos.forEach(e=>{
-      const li=document.createElement('li');
-      li.textContent=e;ul.appendChild(li);
-    });
-    document.getElementById('modal').style.display='flex';
-  }
-  function cerrarModal(){document.getElementById('modal').style.display='none';}
-  window.addEventListener('keydown',e=>{if(e.key==="Escape")cerrarModal();});
-
-  // Contador regresivo
   const evento=new Date("2025-12-20T18:00:00").getTime();
   setInterval(()=>{
     const ahora=new Date().getTime();
     let diff=evento-ahora;
     if(diff<=0){
-      document.getElementById('countdown').textContent="¡El show ha comenzado!";
+      document.getElementById('countdown').textContent="🎉 ¡El show ha comenzado!";
       return;
     }
     const d=Math.floor(diff/(1000*60*60*24));
@@ -356,7 +319,6 @@
     document.getElementById('countdown').textContent=`🎅 Faltan ${d}d ${h}h ${m}m para el Show Navideño`;
   },60000);
 
-  // Animación copos de nieve
   const snowflakes=document.querySelectorAll('.snowflake');
   snowflakes.forEach(sf=>{
     sf.style.left=Math.random()*100+'vw';
