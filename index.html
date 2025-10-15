@@ -59,13 +59,13 @@
       border-bottom: 4px solid var(--acento);
     }
     header.hero h1{
-      font-size:2.8rem;
+      font-size:2.4rem;
       font-weight:800;
       margin-bottom:0.5rem;
       text-shadow:0 3px 6px rgba(0,0,0,0.4);
     }
     header.hero .eslogan{
-      font-size:1.25rem;
+      font-size:1.1rem;
       font-weight:600;
       font-style:italic;
       color:var(--acento);
@@ -105,7 +105,7 @@
     @keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
     h2{text-align:center;font-size:1.9rem;color:var(--primario);margin-bottom:.8rem;text-shadow:0 2px 6px rgba(0,0,0,0.15);}
-    .intro{text-align:center;max-width:800px;margin:0 auto 1.2rem;font-size:1rem}
+    .intro{text-align:center;max-width:860px;margin:0 auto 1.2rem;font-size:1rem}
     .hero-img{
       display:block;max-width:900px;width:95%;
       margin:0 auto 1.5rem;border-radius:20px;
@@ -122,17 +122,23 @@
       padding:1rem 2.5rem;
       border-radius:35px;
       font-weight:700;
-      font-size:1.3rem;
+      font-size:1.2rem;
       box-shadow:0 6px 20px rgba(0,0,0,0.25);
       transition:.3s;
-      margin:1.5rem auto 0;
+      margin:1.2rem auto 0;
     }
     .btn-inscribir:hover{
       transform:scale(1.08);
       background:linear-gradient(135deg,var(--primario),var(--secundario));
     }
 
-    /* 🧊 Cards */
+    /* Listas y texto */
+    .texto{max-width:900px;margin:0 auto;font-size:1rem}
+    .texto p{margin:.4rem 0}
+    ul{margin:.4rem 0 .8rem 1.2rem}
+    li{margin:.3rem 0}
+
+    /* 🧊 Cards y grids */
     .grid{
       display:grid;gap:1rem;margin-top:1rem;
       grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -141,7 +147,7 @@
       position:relative;
       background:rgba(255,255,255,0.95);
       border-radius:20px;
-      padding:2.2rem 1.1rem 1.2rem;
+      padding:1.4rem 1.1rem 1.2rem;
       text-align:left;
       box-shadow:0 6px 15px rgba(0,0,0,0.1);
       transition:.3s;
@@ -160,8 +166,8 @@
       padding:.25rem .75rem;
       border-radius:14px;
     }
-    .icono{font-size:1.6rem;margin-right:.5rem}
-    .card h3{font-size:1.1rem;color:var(--primario);margin:.2rem 0 .4rem;font-weight:700}
+    .icono{font-size:1.2rem;margin-right:.4rem}
+    .card h3{font-size:1.05rem;color:var(--primario);margin:.2rem 0 .4rem;font-weight:700}
 
     /* 🪙 Footer */
     footer{
@@ -177,43 +183,19 @@
 
     /* 📱 RESPONSIVE */
     @media (max-width: 768px) {
-      header.hero h1 {
-        font-size: 1.9rem;
-      }
-      header.hero .eslogan {
-        font-size: 1rem;
-      }
-      nav {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .btn-inscribir {
-        font-size: 1.1rem;
-        padding: 0.8rem 1.5rem;
-      }
-      .hero-img {
-        width: 100%;
-      }
-      h2 {
-        font-size: 1.5rem;
-      }
-      .card {
-        padding: 1.5rem 1rem;
-      }
+      header.hero h1 { font-size: 1.9rem; }
+      header.hero .eslogan { font-size: 1rem; }
+      nav { flex-direction: column; gap: 0.5rem; }
+      .btn-inscribir { font-size: 1.05rem; padding: 0.8rem 1.5rem; }
+      .hero-img { width: 100%; }
+      h2 { font-size: 1.5rem; }
+      .card { padding: 1.1rem 1rem; }
+      .texto { padding: 0 .2rem; }
     }
-
     @media (max-width: 480px) {
-      header.hero h1 {
-        font-size: 1.5rem;
-      }
-      .btn-inscribir {
-        width: 100%;
-        font-size: 1rem;
-      }
-      nav button {
-        font-size: 0.9rem;
-        padding: 0.5rem 1rem;
-      }
+      header.hero h1 { font-size: 1.55rem; }
+      .btn-inscribir { width: 100%; font-size: 1rem; }
+      nav button { font-size: .95rem; padding: 0.5rem 1rem; }
     }
   </style>
 </head>
@@ -237,57 +219,116 @@
 
 <nav>
   <button class="active" onclick="mostrarSeccion('inicio', event)">Inicio</button>
+  <button onclick="mostrarSeccion('objetivo', event)">Objetivo</button>
   <button onclick="mostrarSeccion('categorias', event)">Categorías</button>
   <button onclick="mostrarSeccion('participantes', event)">Participantes</button>
-  <button onclick="mostrarSeccion('bases', event)">Bases</button>
+  <button onclick="mostrarSeccion('bases', event)">Bases y Requisitos</button>
 </nav>
 
+<!-- INICIO -->
 <section id="inicio" class="active">
   <h2>✨ Convocatoria Navideña ✨</h2>
-  <p class="intro">Participa en un show lleno de alegría, creatividad y el espíritu navideño. ¡Haz brillar tu talento!</p>
+  <p class="intro">¡SHOW DE TALENTOS ESCUELA TLAHTOANI!<br>“Donde la creatividad y el arte cobran vida”</p>
   <img src="https://i.ibb.co/3cWnCFz/navidad-banner.jpg" alt="Show de Talentos 2025" class="hero-img"/>
+  <div class="texto">
+    <p>La Dirección de la Escuela Tlahtoani convoca a toda su comunidad estudiantil a participar en el emocionante Show de Talentos 2025, un espacio diseñado para que nuestros alumnos demuestren sus habilidades, talentos y creatividad en el escenario.</p>
+  </div>
   <div style="text-align:center;">
     <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
   </div>
 </section>
 
+<!-- OBJETIVO (texto íntegro) -->
+<section id="objetivo">
+  <h2>📝 I. Objetivo</h2>
+  <div class="texto">
+    <p>Fomentar la expresión artística, el desarrollo de la autoestima y el compañerismo, ofreciendo a los estudiantes una plataforma para compartir sus talentos con toda la comunidad escolar.</p>
+  </div>
+  <div style="text-align:center;">
+    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
+  </div>
+</section>
+
+<!-- CATEGORÍAS (texto íntegro + tarjetas) -->
 <section id="categorias">
-  <h2>🎁 Categorías de Participación</h2>
-  <p class="intro">Canto, danza, música, teatro y talentos variados. ¡Escoge tu estilo y celebra la navidad con tu talento!</p>
-  <div class="grid" id="gridCategorias"></div>
+  <h2>🎁 II. Categorías de Participación</h2>
+  <p class="intro">El show está abierto a cualquier manifestación artística y/o habilidad que pueda presentarse en un escenario, incluyendo, pero no limitándose a:</p>
+
+  <div class="grid" id="gridCategorias">
+    <!-- Se llenará por JS para mantener el diseño -->
+  </div>
+
+  <div class="texto" style="margin-top:1rem">
+    <ul>
+      <li><strong>Canto:</strong> Solista, dueto, o grupo vocal.</li>
+      <li><strong>Baile/Danza:</strong> Individual o grupal (folclórico, moderno, urbano, etc.).</li>
+      <li><strong>Música Instrumental:</strong> Solista o ensamble (cualquier instrumento).</li>
+      <li><strong>Actuación/Teatro:</strong> Monólogo, sketch, stand-up o declamación.</li>
+      <li><strong>Talento Variado:</strong> Magia, malabares, artes marciales (demostración), poesía, dibujo en vivo (demostración rápida), o cualquier otra habilidad creativa.</li>
+    </ul>
+  </div>
+
   <div style="text-align:center;">
     <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
   </div>
 </section>
 
+<!-- PARTICIPANTES (texto íntegro) -->
 <section id="participantes">
-  <h2>🎄 De los Participantes</h2>
-  <p class="intro">Reglas de inscripción y participación para nuestro especial navideño.</p>
+  <h2>👥 III. De los Participantes</h2>
+  <div class="texto">
+    <ul>
+      <li>Podrán participar todos los alumnos.</li>
+      <li>La participación puede ser individual o grupal. Los grupos pueden estar conformados por estudiantes de diferentes grados (Los ensayos será de manera externa).</li>
+      <li>Cada estudiante solo podrá participar en una (1) ocasión, ya sea de forma individual o como miembro de un grupo.</li>
+    </ul>
+  </div>
+  <div style="text-align:center;">
+    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
+  </div>
+</section>
+
+<!-- BASES Y REQUISITOS (texto íntegro) -->
+<section id="bases">
+  <h2>✨ IV. Bases y Requisitos de la Presentación</h2>
   <div class="grid">
     <div class="card">
-      <span class="pill">Quiénes</span>
-      <h3><span class="icono">👥</span>Pueden participar</h3>
-      <ul class="bullet">
-        <li>Todos los alumnos del Colegio Tlahtoani.</li>
-        <li>Individual o grupal (pueden mezclar grados).</li>
-        <li>Solo se permite una participación por alumno.</li>
-      </ul>
+      <span class="pill">Duración</span>
+      <h3><span class="icono">⏱️</span>Máximo 5 minutos</h3>
+      <p>Cada número artístico deberá tener una duración máxima de 5 minutos.</p>
+    </div>
+
+    <div class="card">
+      <span class="pill">Contenido</span>
+      <h3><span class="icono">🛡️</span>Apropiado</h3>
+      <p>El contenido de la presentación debe ser apropiado para todas las edades y el ambiente escolar. Queda estrictamente prohibido el uso de lenguaje vulgar, contenido explícito, ofensivo o que incite a la violencia, discriminación o consumo de sustancias.</p>
+    </div>
+
+    <div class="card">
+      <span class="pill">Música y Pistas</span>
+      <h3><span class="icono">🎵</span>Formato MP3</h3>
+      <p>Si tu presentación requiere música de fondo o pista, esta deberá ser entregada a la Coordinación de Eventos al momento de la inscripción en formato MP3 y en un dispositivo USB etiquetado con el nombre del participante/grupo.</p>
+    </div>
+
+    <div class="card">
+      <span class="pill">Vestuario y Utilería</span>
+      <h3><span class="icono">👗</span>Adecuado</h3>
+      <p>El vestuario y la utilería deben ser adecuados para el contexto escolar. Los participantes son responsables de proveer sus propios elementos (instrumentos musicales, vestuario, props, etc.).</p>
+    </div>
+
+    <div class="card">
+      <span class="pill">Originalidad</span>
+      <h3><span class="icono">✨</span>Creatividad</h3>
+      <p>Se valorará la creatividad y originalidad de las presentaciones.</p>
+    </div>
+
+    <div class="card">
+      <span class="pill">Eliminatoria</span>
+      <h3><span class="icono">🏆</span>Etapa previa</h3>
+      <p>Los alumnos tendrán su etapa de eliminatoria, por lo cual los alumnos deberán de cumplir con las rúbricas antes mencionadas, para lograr presentar su show en nuestro evento.</p>
     </div>
   </div>
-  <div style="text-align:center;">
-    <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
-  </div>
-</section>
 
-<section id="bases">
-  <h2>✨ Bases y Requisitos</h2>
-  <div class="grid">
-    <div class="card"><span class="pill">Duración</span><h3>⏱️ Máximo 5 minutos</h3></div>
-    <div class="card"><span class="pill">Contenido</span><h3>🛡️ Apropiado</h3><p>Sin lenguaje vulgar ni violencia.</p></div>
-    <div class="card"><span class="pill">Música</span><h3>🎵 Formato MP3</h3></div>
-    <div class="card"><span class="pill">Vestuario</span><h3>👗 Adecuado</h3></div>
-    <div class="card"><span class="pill">Originalidad</span><h3>✨ Creatividad</h3></div>
-  </div>
   <div style="text-align:center;">
     <a class="btn-inscribir" href="https://api.whatsapp.com/send?phone=5213311650931" target="_blank">🎅📲 Inscribirme</a>
   </div>
@@ -306,13 +347,13 @@
     if(ev) ev.target.classList.add('active');
   }
 
-  // Crear categorías dinámicas
+  // Crear tarjetas de categorías (mismo contenido del doc)
   const categorias = [
-    {titulo:"Canto Navideño",icono:"🎤",desc:"Solista, dueto o grupo vocal."},
-    {titulo:"Baile / Danza",icono:"🕺",desc:"Individual o grupal."},
-    {titulo:"Música Instrumental",icono:"🎸",desc:"Solista o ensamble."},
-    {titulo:"Actuación / Teatro",icono:"🎭",desc:"Monólogo, sketch o declamación."},
-    {titulo:"Talento Variado",icono:"✨",desc:"Magia, poesía, dibujo en vivo."}
+    {titulo:"Canto", icono:"🎤", desc:"Solista, dueto, o grupo vocal."},
+    {titulo:"Baile/Danza", icono:"🕺", desc:"Individual o grupal (folclórico, moderno, urbano, etc.)."},
+    {titulo:"Música Instrumental", icono:"🎸", desc:"Solista o ensamble (cualquier instrumento)."},
+    {titulo:"Actuación/Teatro", icono:"🎭", desc:"Monólogo, sketch, stand-up o declamación."},
+    {titulo:"Talento Variado", icono:"✨", desc:"Magia, malabares, artes marciales (demostración), poesía, dibujo en vivo (demostración rápida), u otra habilidad creativa."}
   ];
   const grid=document.getElementById('gridCategorias');
   categorias.forEach(c=>{
@@ -323,20 +364,20 @@
     grid.appendChild(el);
   });
 
-  // Contador regresivo
+  // Contador regresivo (ajusta la fecha si lo deseas)
   const evento=new Date("2025-12-20T18:00:00").getTime();
-  setInterval(()=>{
+  function renderCountdown(){
     const ahora=new Date().getTime();
-    let diff=evento-ahora;
-    if(diff<=0){
-      document.getElementById('countdown').textContent="🎉 ¡El show ha comenzado!";
-      return;
-    }
+    const diff=evento-ahora;
+    const el=document.getElementById('countdown');
+    if(diff<=0){ el.textContent="🎉 ¡El show ha comenzado!"; return; }
     const d=Math.floor(diff/(1000*60*60*24));
     const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
     const m=Math.floor((diff%(1000*60*60))/(1000*60));
-    document.getElementById('countdown').textContent=`🎅 Faltan ${d}d ${h}h ${m}m para el Show Navideño`;
-  },60000);
+    el.textContent=`🎅 Faltan ${d}d ${h}h ${m}m para el Show Navideño`;
+  }
+  renderCountdown();
+  setInterval(renderCountdown,60000);
 
   // Animación copos
   const snowflakes=document.querySelectorAll('.snowflake');
