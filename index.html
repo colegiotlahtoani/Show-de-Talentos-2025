@@ -95,6 +95,19 @@
       color:var(--acento);
     }
 
+    /* 🖼 Imagen debajo del menú */
+    .banner-inicio{
+      display:block;
+      margin:1rem auto 0;
+      max-width:90%;
+      border-radius:20px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.4);
+      transition:transform 0.4s ease;
+    }
+    .banner-inicio:hover{
+      transform:scale(1.03);
+    }
+
     /* ✨ Secciones */
     section{
       max-width:1000px;
@@ -158,19 +171,6 @@
     .card p, .card ul{font-size:0.95rem;margin-top:.4rem;line-height:1.6;}
     ul{padding-left:1.2rem;}
     li{margin:.3rem 0;}
-
-    /* 🖼 Imagen de inicio */
-    .inicio-imagen{
-      display:block;
-      margin:1.5rem auto 0;
-      max-width:90%;
-      border-radius:20px;
-      box-shadow:0 8px 25px rgba(0,0,0,0.4);
-      transition:transform 0.4s ease;
-    }
-    .inicio-imagen:hover{
-      transform:scale(1.03);
-    }
 
     .boton-descarga{
       display:inline-block;
@@ -238,6 +238,9 @@
   <button onclick="mostrarSeccion('registro', event)">Registro</button>
 </nav>
 
+<!-- 🖼 Imagen debajo del menú -->
+<img src="Show de Talentos 2025 en Tlahtoani.png" alt="Show de Talentos 2025" class="banner-inicio">
+
 <!-- 🏠 INICIO -->
 <section id="inicio" class="active">
   <h2>🎤 Bienvenidos al Show de Talentos</h2>
@@ -248,7 +251,6 @@
       Una experiencia única para compartir tu arte, talento y espíritu navideño con toda la comunidad Tlahtoani. ✨🎄</p>
     </div>
   </div>
-  <img src="Show de Talentos 2025 en Tlahtoani.png" alt="Show de Talentos 2025 en Tlahtoani" class="inicio-imagen">
 </section>
 
 <!-- 🧭 OBJETIVO -->
