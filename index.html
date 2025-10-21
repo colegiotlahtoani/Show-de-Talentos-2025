@@ -49,7 +49,7 @@
       color:var(--acento);margin-bottom:0.5rem;
     }
 
-    /* 🧭 Nuevo NAV */
+    /* 🧭 NAV */
     nav{
       position:sticky;
       top:0;
@@ -95,17 +95,22 @@
       color:var(--acento);
     }
 
-    /* 🖼 Imagen debajo del menú */
-    .banner-inicio{
+    /* 🖼 Imagen solo en INICIO */
+    #banner-inicio{
       display:block;
       margin:1rem auto 0;
       max-width:90%;
       border-radius:20px;
       box-shadow:0 8px 25px rgba(0,0,0,0.4);
-      transition:transform 0.4s ease;
+      transition:transform 0.4s ease, opacity 0.3s ease;
     }
-    .banner-inicio:hover{
+    #banner-inicio:hover{
       transform:scale(1.03);
+    }
+    #banner-inicio.hidden{
+      opacity:0;
+      pointer-events:none;
+      display:none;
     }
 
     /* ✨ Secciones */
@@ -167,10 +172,6 @@
       display:inline-block;
       margin-bottom:0.6rem;
     }
-    .card h3{font-size:1.1rem;color:var(--acento);margin:.3rem 0;font-weight:700}
-    .card p, .card ul{font-size:0.95rem;margin-top:.4rem;line-height:1.6;}
-    ul{padding-left:1.2rem;}
-    li{margin:.3rem 0;}
 
     .boton-descarga{
       display:inline-block;
@@ -201,15 +202,6 @@
       backdrop-filter: blur(4px);
       border-top: 4px solid var(--acento);
     }
-
-    @media (max-width: 768px) {
-      header.hero h1 { font-size: 2.2rem; }
-      nav { flex-wrap: wrap; gap: 0.5rem; }
-    }
-    @media (max-width: 480px) {
-      header.hero h1 { font-size: 1.6rem; }
-      nav button { font-size: .9rem; padding: 0.5rem 0.8rem; }
-    }
   </style>
 </head>
 <body>
@@ -238,8 +230,8 @@
   <button onclick="mostrarSeccion('registro', event)">Registro</button>
 </nav>
 
-<!-- 🖼 Imagen debajo del menú -->
-<img src="Show de Talentos 2025 en Tlahtoani.png" alt="Show de Talentos 2025" class="banner-inicio">
+<!-- 🖼 Imagen que solo aparece en INICIO -->
+<img src="Show de Talentos 2025 en Tlahtoani.png" alt="Show de Talentos 2025" id="banner-inicio">
 
 <!-- 🏠 INICIO -->
 <section id="inicio" class="active">
@@ -324,12 +316,24 @@
 
 <script>
   function mostrarSeccion(id, ev){
+    // Mostrar sección
     document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
+
+    // Menú activo
     document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
     if(ev) ev.target.classList.add('active');
+
+    // Mostrar/ocultar imagen
+    const banner = document.getElementById('banner-inicio');
+    if(id === 'inicio'){
+      banner.classList.remove('hidden');
+    } else {
+      banner.classList.add('hidden');
+    }
   }
 
+  // Categorías dinámicas
   const categorias = [
     {titulo:"Canto", icono:"🎤", desc:"Solista, dueto, o grupo vocal."},
     {titulo:"Baile/Danza", icono:"🕺", desc:"Individual o grupal (folclórico, moderno, urbano, etc.)."},
@@ -346,6 +350,7 @@
     grid.appendChild(el);
   });
 
+  // Copos de nieve animados
   const snowflakes=document.querySelectorAll('.snowflake');
   snowflakes.forEach(sf=>{
     sf.style.left=Math.random()*100+'vw';
