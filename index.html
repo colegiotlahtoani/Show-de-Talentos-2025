@@ -225,6 +225,13 @@
   <button onclick="mostrarSeccion('registro', event)">Registro</button>
 </nav>
 
+<!-- 📸 Imagen debajo del menú -->
+<div id="imagen-inicio" style="text-align:center; margin-top:1rem;">
+  <img src="Show de Talentos 2025 en Tlahtoani.png" 
+       alt="Show de Talentos 2025 en Tlahtoani" 
+       style="max-width:90%; border-radius:20px; box-shadow:0 8px 25px rgba(0,0,0,0.25);">
+</div>
+
 <!-- 🏠 INICIO -->
 <section id="inicio" class="active">
   <h2>🎤 Bienvenidos al Show de Talentos</h2>
@@ -234,11 +241,6 @@
       <p>Participa en el evento más creativo del año: <strong>Show de Talentos 2025</strong>. 
       Una experiencia única para compartir tu arte, talento y espíritu navideño con toda la comunidad Tlahtoani. ✨🎄</p>
     </div>
-  </div>
-
-  <!-- 📸 Imagen debajo del menú -->
-  <div style="text-align:center; margin-top:2rem;">
-    <img src="Show de Talentos 2025 en Tlahtoani.png" alt="Show de Talentos 2025 en Tlahtoani" style="max-width:90%; border-radius:20px; box-shadow:0 8px 25px rgba(0,0,0,0.25);">
   </div>
 </section>
 
@@ -312,11 +314,20 @@
 </footer>
 
 <script>
+  const imgInicio = document.getElementById('imagen-inicio');
+
   function mostrarSeccion(id, ev){
     document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
     if(ev) ev.target.classList.add('active');
+
+    // 👇 Mostrar la imagen solo en inicio
+    if(id === 'inicio'){
+      imgInicio.style.display = 'block';
+    } else {
+      imgInicio.style.display = 'none';
+    }
   }
 
   const categorias = [
