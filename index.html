@@ -159,6 +159,19 @@
     ul{padding-left:1.2rem;}
     li{margin:.3rem 0;}
 
+    /* 🖼 Imagen de inicio */
+    .inicio-imagen{
+      display:block;
+      margin:1.5rem auto 0;
+      max-width:90%;
+      border-radius:20px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.4);
+      transition:transform 0.4s ease;
+    }
+    .inicio-imagen:hover{
+      transform:scale(1.03);
+    }
+
     .boton-descarga{
       display:inline-block;
       background:var(--acento);
@@ -215,7 +228,7 @@
   <p class="eslogan">Creatividad, arte y espíritu navideño en escena ✨</p>
 </header>
 
-<!-- 🌟 Nuevo Menú -->
+<!-- 🌟 Menú -->
 <nav>
   <button class="active" onclick="mostrarSeccion('inicio', event)">Inicio</button>
   <button onclick="mostrarSeccion('objetivo', event)">Objetivo</button>
@@ -231,10 +244,11 @@
   <div class="grid">
     <div class="card">
       <span class="pill">Convocatoria</span>
-      <p>Participa en el evento <strong>Show de Talentos 2025</strong>. 
+      <p>Participa en el evento más creativo del año: <strong>Show de Talentos 2025</strong>. 
       Una experiencia única para compartir tu arte, talento y espíritu navideño con toda la comunidad Tlahtoani. ✨🎄</p>
     </div>
   </div>
+  <img src="Show de Talentos 2025 en Tlahtoani.png" alt="Show de Talentos 2025 en Tlahtoani" class="inicio-imagen">
 </section>
 
 <!-- 🧭 OBJETIVO -->
@@ -293,7 +307,7 @@
       1️⃣ Descarga el formulario<br>
       2️⃣ Imprímelo<br>
       3️⃣ Llénalo con tus datos<br>
-      4️⃣ Entrégalo en el colegio 📍</p>
+      4️⃣ Entrégalo en la Coordinación de Eventos del colegio 📍</p>
       <a href="https://drive.google.com/file/d/1aHtzISAxoHvo_SR_gFl5pRqbong3exBL/view?usp=sharing" 
          class="boton-descarga" target="_blank">
          📥 Descargar Formulario
