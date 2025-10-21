@@ -75,6 +75,24 @@
     ul{padding-left:1.2rem;}
     li{margin:.3rem 0;}
 
+    .boton-descarga{
+      display:inline-block;
+      background:var(--primario);
+      color:white;
+      padding:0.9rem 1.5rem;
+      font-size:1rem;
+      font-weight:600;
+      text-decoration:none;
+      border-radius:30px;
+      transition:0.3s;
+      text-align:center;
+      margin-top:1rem;
+    }
+    .boton-descarga:hover{
+      background:var(--secundario);
+      transform:scale(1.05);
+    }
+
     footer{
       background:rgba(0,0,0,0.35);
       color:#fff;
@@ -119,6 +137,7 @@
   <button onclick="mostrarSeccion('categorias', event)">Categorías</button>
   <button onclick="mostrarSeccion('participantes', event)">Participantes</button>
   <button onclick="mostrarSeccion('bases', event)">Bases</button>
+  <button onclick="mostrarSeccion('registro', event)">Registro</button>
 </nav>
 
 <!-- INICIO -->
@@ -176,6 +195,23 @@
     <div class="card"><span class="pill">Vestuario</span><h3>👗 Adecuado</h3><p>Los participantes son responsables de su vestuario y utilería, que deben ser apropiados para el contexto escolar.</p></div>
     <div class="card"><span class="pill">Originalidad</span><h3>✨ Creatividad</h3><p>Se valorará la creatividad y originalidad.</p></div>
     <div class="card"><span class="pill">Eliminatoria</span><h3>🏆 Etapa previa</h3><p>Habrá etapa de eliminatoria. Se deben cumplir las rúbricas establecidas (temática navideña) para presentarse en el evento final. <br><strong>Fechas:</strong> Miércoles 26 y Jueves 27 de Noviembre.</p></div>
+  </div>
+</section>
+
+<!-- REGISTRO -->
+<section id="registro">
+  <h2>📝 Registro al Show de Talentos</h2>
+  <div class="grid">
+    <div class="card">
+      <span class="pill">Registro</span>
+      <p>Para registrarte, descarga el formulario oficial del evento en el botón de abajo ⬇️<br><br>
+      ✨ <strong>Instrucciones:</strong><br>
+      1. Descarga el PDF.<br>
+      2. Imprímelo.<br>
+      3. Llénalo con tus datos.<br>
+      4. Entrégalo en la Coordinación de Eventos del colegio.</p>
+      <a href="Registro_Show_de_Talentos_Invierno_2025_Diseño_Con_Logo.pdf" class="boton-descarga" download>📥 Descargar Formulario</a>
+    </div>
   </div>
 </section>
 
