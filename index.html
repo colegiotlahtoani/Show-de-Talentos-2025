@@ -15,9 +15,7 @@
       --blanco:#fff;
       --gris:#f6f6f6;
     }
-
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-
     body{
       background: linear-gradient(135deg, #c62828 0%, #2e7d32 100%);
       background-attachment: fixed;
@@ -26,34 +24,18 @@
       line-height:1.7;
       overflow-x:hidden;
     }
-
-    /* Copos de nieve */
-    .snowflakes{
-      position:fixed;top:0;left:0;width:100%;height:100%;
-      pointer-events:none;z-index:300;
-    }
-    .snowflake{
-      position:absolute;top:-10px;color:white;font-size:1.2rem;opacity:0.8;
-      animation:fall linear infinite;text-shadow:0 0 8px rgba(255,255,255,0.8);
-    }
+    .snowflakes{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:300;}
+    .snowflake{position:absolute;top:-10px;color:white;font-size:1.2rem;opacity:0.8;animation:fall linear infinite;text-shadow:0 0 8px rgba(255,255,255,0.8);}
     @keyframes fall{0%{transform:translateY(0);}100%{transform:translateY(100vh);}}
 
-    /* Header */
     header.hero{
       background:rgba(0,0,0,0.35);backdrop-filter: blur(4px);
       color:var(--blanco);padding:3rem 1rem 2rem;text-align:center;
       box-shadow:0 6px 25px rgba(0,0,0,0.25);border-bottom: 4px solid var(--acento);
     }
-    header.hero h1{
-      font-size:2.6rem;font-weight:800;margin-bottom:0.5rem;
-      text-shadow:0 3px 6px rgba(0,0,0,0.4);
-    }
-    header.hero .eslogan{
-      font-size:1.2rem;font-weight:600;font-style:italic;
-      color:var(--acento);margin-bottom:0.5rem;
-    }
+    header.hero h1{font-size:2.6rem;font-weight:800;margin-bottom:0.5rem;text-shadow:0 3px 6px rgba(0,0,0,0.4);}
+    header.hero .eslogan{font-size:1.2rem;font-weight:600;font-style:italic;color:var(--acento);margin-bottom:0.5rem;}
 
-    /* Menú */
     nav{
       background:var(--blanco);padding:0.8rem 1rem;
       box-shadow:0 4px 14px rgba(0,0,0,0.15);
@@ -73,7 +55,6 @@
       box-shadow:0 4px 12px rgba(0,0,0,0.15);
     }
 
-    /* Secciones */
     section{
       max-width:1000px;margin:2rem auto;padding:2rem 1.2rem;
       display:none;animation:fadeIn .7s ease;
@@ -85,36 +66,10 @@
     @keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
     h2{text-align:center;font-size:2rem;color:var(--primario);margin-bottom:1rem;text-shadow:0 2px 6px rgba(0,0,0,0.15);}
-
-    /* Tarjetas uniformes */
-    .grid{
-      display:grid;
-      gap:1rem;
-      margin-top:1rem;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    }
-    .card{
-      background:var(--gris);
-      border-radius:20px;
-      padding:1.4rem 1rem 1.2rem;
-      text-align:left;
-      box-shadow:0 6px 15px rgba(0,0,0,0.1);
-      transition:.3s;
-    }
-    .card:hover{
-      transform:translateY(-7px) scale(1.02);
-      box-shadow:0 12px 30px rgba(0,0,0,0.25);
-    }
-    .pill{
-      background:var(--acento);
-      color:#333;
-      font-size:.8rem;
-      font-weight:700;
-      padding:.25rem .75rem;
-      border-radius:14px;
-      display:inline-block;
-      margin-bottom:0.6rem;
-    }
+    .grid{display:grid;gap:1rem;margin-top:1rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+    .card{background:var(--gris);border-radius:20px;padding:1.4rem 1rem 1.2rem;text-align:left;box-shadow:0 6px 15px rgba(0,0,0,0.1);transition:.3s;}
+    .card:hover{transform:translateY(-7px) scale(1.02);box-shadow:0 12px 30px rgba(0,0,0,0.25);}
+    .pill{background:var(--acento);color:#333;font-size:.8rem;font-weight:700;padding:.25rem .75rem;border-radius:14px;display:inline-block;margin-bottom:0.6rem;}
     .card h3{font-size:1.1rem;color:var(--primario);margin:.3rem 0;font-weight:700}
     .card p, .card ul{font-size:0.95rem;margin-top:.4rem;line-height:1.6;}
     ul{padding-left:1.2rem;}
@@ -203,7 +158,8 @@
       <span class="pill">Reglas</span>
       <ul>
         <li>Podrán participar todos los alumnos.</li>
-        <li>La participación puede ser individual o grupal. Los grupos pueden estar conformados por estudiantes de diferentes grados (Los ensayos será de manera externa).</li>
+        <li>La participación puede ser individual o grupal.</li>
+        <li>Los grupos pueden estar conformados por estudiantes de diferentes grados (los ensayos serán de manera externa).</li>
         <li>Cada estudiante solo podrá participar en una (1) ocasión, ya sea de forma individual o como miembro de un grupo.</li>
       </ul>
     </div>
@@ -216,10 +172,10 @@
   <div class="grid">
     <div class="card"><span class="pill">Duración</span><h3>⏱️ Máximo 5 minutos</h3><p>Cada número artístico deberá tener una duración máxima de 5 minutos.</p></div>
     <div class="card"><span class="pill">Contenido</span><h3>🛡️ Apropiado</h3><p>El contenido debe ser apropiado para todas las edades. Se prohíbe lenguaje vulgar, violencia, discriminación o incitación a sustancias.</p></div>
-    <div class="card"><span class="pill">Música</span><h3>🎵 Formato MP3</h3><p>La pista debe entregarse a la Coordinación de Eventos en MP3 y USB etiquetado.</p></div>
-    <div class="card"><span class="pill">Vestuario</span><h3>👗 Adecuado</h3><p>Los participantes son responsables de su vestuario y utilería.</p></div>
+    <div class="card"><span class="pill">Música</span><h3>🎵 Formato MP3</h3><p>La pista debe entregarse a la Coordinación de Eventos en formato MP3 y USB etiquetado con el nombre del participante o grupo.</p></div>
+    <div class="card"><span class="pill">Vestuario</span><h3>👗 Adecuado</h3><p>Los participantes son responsables de su vestuario y utilería, que deben ser apropiados para el contexto escolar.</p></div>
     <div class="card"><span class="pill">Originalidad</span><h3>✨ Creatividad</h3><p>Se valorará la creatividad y originalidad.</p></div>
-    <div class="card"><span class="pill">Eliminatoria</span><h3>🏆 Etapa previa</h3><p>Habrá etapa de eliminatoria. Se deben cumplir las rúbricas establecidas para presentarse en el evento final.</p></div>
+    <div class="card"><span class="pill">Eliminatoria</span><h3>🏆 Etapa previa</h3><p>Habrá etapa de eliminatoria. Se deben cumplir las rúbricas establecidas (temática navideña) para presentarse en el evento final. <br><strong>Fechas:</strong> Miércoles 26 y Jueves 27 de Noviembre.</p></div>
   </div>
 </section>
 
@@ -246,12 +202,11 @@
   categorias.forEach(c=>{
     const el=document.createElement('div');el.className='card';
     el.innerHTML=`<span class="pill">Categoría</span>
-                  <h3><span class="icono">${c.icono}</span>${c.titulo}</h3>
+                  <h3><span class="icono">${c.icono}</span> ${c.titulo}</h3>
                   <p>${c.desc}</p>`;
     grid.appendChild(el);
   });
 
-  // ❄️ Animación copos
   const snowflakes=document.querySelectorAll('.snowflake');
   snowflakes.forEach(sf=>{
     sf.style.left=Math.random()*100+'vw';
