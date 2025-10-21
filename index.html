@@ -13,16 +13,18 @@
       --secundario:#2e7d32;
       --acento:#FFD166;
       --blanco:#ffffff;
-      --gris:#f6f6f6;
       --glass:rgba(255, 255, 255, 0.15);
     }
 
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    html{
+      scroll-behavior: smooth;
+    }
     body{
       background: linear-gradient(135deg, #c62828 0%, #2e7d32 100%);
       background-attachment: fixed;
       background-size: cover;
-      color:#333;
+      color:#fff;
       line-height:1.7;
       overflow-x:hidden;
     }
@@ -34,27 +36,27 @@
 
     /* 🧭 Header */
     header.hero{
-      background:var(--glass);backdrop-filter: blur(8px);
-      color:var(--blanco);padding:4rem 1rem 3rem;text-align:center;
+      background:var(--glass);
+      backdrop-filter: blur(8px);
+      color:var(--blanco);
+      padding:4rem 1rem 3rem;
+      text-align:center;
       box-shadow:0 6px 25px rgba(0,0,0,0.25);
       border-bottom: 3px solid var(--acento);
-    }
-    header.hero h1{
-      font-size:2.8rem;font-weight:800;margin-bottom:0.5rem;
-      text-shadow:0 4px 8px rgba(0,0,0,0.5);
-    }
-    header.hero .eslogan{
-      font-size:1.2rem;font-weight:600;font-style:italic;
-      color:var(--acento);margin-bottom:0.5rem;
     }
 
     /* 🧭 Nav */
     nav{
-      background:rgba(255,255,255,0.15);
-      backdrop-filter: blur(8px);
+      background:rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
       padding:0.8rem 1rem;
-      position:sticky;top:0;z-index:100;
-      display:flex;justify-content:center;gap:0.6rem;flex-wrap:wrap;
+      position:sticky;
+      top:0;
+      z-index:200;
+      display:flex;
+      justify-content:center;
+      gap:0.6rem;
+      flex-wrap:wrap;
       border-bottom: 1px solid rgba(255,255,255,0.25);
     }
     nav button{
@@ -80,16 +82,15 @@
       max-width:1000px;
       margin:2rem auto;
       padding:2rem 1.5rem;
-      display:none;
-      animation:fadeIn .7s ease;
       background: var(--glass);
       backdrop-filter: blur(12px);
       border-radius:25px;
       box-shadow:0 8px 25px rgba(0,0,0,0.25);
       color:#fff;
+      scroll-margin-top: 110px; /* 👈 este es el truco */
+      display:none;
     }
     section.active{display:block;}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
     h2{
       text-align:center;
@@ -109,8 +110,12 @@
       border-radius:10px;
     }
 
-    /* 🪄 Cards */
-    .grid{display:grid;gap:1.5rem;margin-top:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .grid{
+      display:grid;
+      gap:1.5rem;
+      margin-top:1rem;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    }
     .card{
       background:rgba(255,255,255,0.08);
       border-radius:20px;
@@ -135,12 +140,7 @@
       display:inline-block;
       margin-bottom:0.6rem;
     }
-    .card h3{font-size:1.1rem;color:var(--acento);margin:.3rem 0;font-weight:700}
-    .card p, .card ul{font-size:0.95rem;margin-top:.4rem;line-height:1.6;}
-    ul{padding-left:1.2rem;}
-    li{margin:.3rem 0;}
 
-    /* 📥 Botón de descarga */
     .boton-descarga{
       display:inline-block;
       background:var(--acento);
@@ -159,7 +159,6 @@
       transform:scale(1.05);
     }
 
-    /* 🦶 Footer */
     footer{
       background:rgba(0,0,0,0.35);
       color:#fff;
@@ -175,11 +174,6 @@
     @media (max-width: 768px) {
       header.hero h1 { font-size: 2.2rem; }
       nav { flex-direction: column; gap: 0.5rem; }
-      h2 { font-size: 1.6rem; }
-    }
-    @media (max-width: 480px) {
-      header.hero h1 { font-size: 1.6rem; }
-      nav button { font-size: .95rem; padding: 0.5rem 1rem; }
     }
   </style>
 </head>
@@ -233,7 +227,7 @@
 
 <!-- 🪄 CATEGORÍAS -->
 <section id="categorias">
-  <h2>🎭 Categorías de Participación</h2>
+  <h2>🎭 Categorías</h2>
   <div class="grid" id="gridCategorias"></div>
 </section>
 
@@ -245,9 +239,9 @@
       <span class="pill">Reglas</span>
       <ul>
         <li>Podrán participar todos los alumnos.</li>
-        <li>La participación puede ser individual o grupal.</li>
-        <li>Grupos de distintos grados son permitidos (ensayos externos).</li>
-        <li>Cada estudiante puede participar solo en una presentación.</li>
+        <li>Individual o grupal (de diferentes grados).</li>
+        <li>Ensayos externos permitidos.</li>
+        <li>Una sola participación por estudiante.</li>
       </ul>
     </div>
   </div>
@@ -257,26 +251,26 @@
 <section id="bases">
   <h2>📜 Bases y Requisitos</h2>
   <div class="grid">
-    <div class="card"><span class="pill">⏱️ Duración</span><h3>Máximo 5 minutos</h3></div>
-    <div class="card"><span class="pill">🛡️ Contenido</span><p>Debe ser apto para toda la comunidad escolar.</p></div>
-    <div class="card"><span class="pill">🎵 Música</span><p>Entregar pista en MP3 y USB etiquetado.</p></div>
-    <div class="card"><span class="pill">👗 Vestuario</span><p>Los participantes deben traer su propio vestuario y utilería.</p></div>
-    <div class="card"><span class="pill">✨ Originalidad</span><p>Se valorará creatividad y presentación.</p></div>
-    <div class="card"><span class="pill">🏆 Eliminatoria</span><p>Fechas: 26 y 27 de noviembre.</p></div>
+    <div class="card"><span class="pill">⏱️ Duración</span><p>Máximo 5 minutos.</p></div>
+    <div class="card"><span class="pill">🛡️ Contenido</span><p>Apto para toda la comunidad escolar.</p></div>
+    <div class="card"><span class="pill">🎵 Música</span><p>Entregar pista MP3 y USB etiquetado.</p></div>
+    <div class="card"><span class="pill">👗 Vestuario</span><p>Responsabilidad de los participantes.</p></div>
+    <div class="card"><span class="pill">✨ Originalidad</span><p>Se valorará la creatividad.</p></div>
+    <div class="card"><span class="pill">🏆 Eliminatoria</span><p>26 y 27 de noviembre.</p></div>
   </div>
 </section>
 
 <!-- 📝 REGISTRO -->
 <section id="registro">
-  <h2>📝 Registro al Show de Talentos</h2>
+  <h2>📝 Registro</h2>
   <div class="grid">
     <div class="card">
-      <span class="pill">Registro</span>
+      <span class="pill">Formulario</span>
       <p>Para registrarte:<br>
       1️⃣ Descarga el formulario<br>
       2️⃣ Imprímelo<br>
       3️⃣ Llénalo con tus datos<br>
-      4️⃣ Entrégalo en la Coordinación de Eventos del colegio 📍</p>
+      4️⃣ Entrégalo en la Coordinación de Eventos 📍</p>
       <a href="https://drive.google.com/file/d/1aHtzISAxoHvo_SR_gFl5pRqbong3exBL/view?usp=sharing" 
          class="boton-descarga" target="_blank">
          📥 Descargar Formulario
@@ -295,21 +289,20 @@
     document.getElementById(id).classList.add('active');
     document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
     if(ev) ev.target.classList.add('active');
+    window.scrollTo({top: document.getElementById(id).offsetTop - 80, behavior: 'smooth'});
   }
 
   const categorias = [
-    {titulo:"Canto", icono:"🎤", desc:"Solista, dueto, o grupo vocal."},
-    {titulo:"Baile/Danza", icono:"🕺", desc:"Individual o grupal (folclórico, moderno, urbano, etc.)."},
-    {titulo:"Música Instrumental", icono:"🎸", desc:"Solista o ensamble (cualquier instrumento)."},
-    {titulo:"Actuación/Teatro", icono:"🎭", desc:"Monólogo, sketch, stand-up o declamación."},
-    {titulo:"Talento Variado", icono:"✨", desc:"Magia, malabares, poesía, artes marciales u otra habilidad creativa."}
+    {titulo:"Canto", icono:"🎤", desc:"Solista, dueto o grupo vocal."},
+    {titulo:"Baile/Danza", icono:"🕺", desc:"Folclórico, moderno o urbano."},
+    {titulo:"Música Instrumental", icono:"🎸", desc:"Solista o ensamble."},
+    {titulo:"Actuación/Teatro", icono:"🎭", desc:"Monólogo, sketch o declamación."},
+    {titulo:"Talento Variado", icono:"✨", desc:"Magia, poesía o habilidades creativas."}
   ];
   const grid=document.getElementById('gridCategorias');
   categorias.forEach(c=>{
     const el=document.createElement('div');el.className='card';
-    el.innerHTML=`<span class="pill">Categoría</span>
-                  <h3>${c.icono} ${c.titulo}</h3>
-                  <p>${c.desc}</p>`;
+    el.innerHTML=`<span class="pill">Categoría</span><h3>${c.icono} ${c.titulo}</h3><p>${c.desc}</p>`;
     grid.appendChild(el);
   });
 
