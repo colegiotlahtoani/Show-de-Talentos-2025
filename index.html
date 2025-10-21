@@ -12,9 +12,11 @@
       --primario:#c62828;
       --secundario:#2e7d32;
       --acento:#FFD166;
-      --blanco:#fff;
+      --blanco:#ffffff;
       --gris:#f6f6f6;
+      --glass:rgba(255, 255, 255, 0.15);
     }
+
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
     body{
       background: linear-gradient(135deg, #c62828 0%, #2e7d32 100%);
@@ -24,61 +26,125 @@
       line-height:1.7;
       overflow-x:hidden;
     }
+
+    /* ❄️ Copos */
     .snowflakes{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:300;}
     .snowflake{position:absolute;top:-10px;color:white;font-size:1.2rem;opacity:0.8;animation:fall linear infinite;text-shadow:0 0 8px rgba(255,255,255,0.8);}
     @keyframes fall{0%{transform:translateY(0);}100%{transform:translateY(100vh);}}
 
+    /* 🧭 Header */
     header.hero{
-      background:rgba(0,0,0,0.35);backdrop-filter: blur(4px);
-      color:var(--blanco);padding:3rem 1rem 2rem;text-align:center;
-      box-shadow:0 6px 25px rgba(0,0,0,0.25);border-bottom: 4px solid var(--acento);
+      background:var(--glass);backdrop-filter: blur(8px);
+      color:var(--blanco);padding:4rem 1rem 3rem;text-align:center;
+      box-shadow:0 6px 25px rgba(0,0,0,0.25);
+      border-bottom: 3px solid var(--acento);
     }
-    header.hero h1{font-size:2.6rem;font-weight:800;margin-bottom:0.5rem;text-shadow:0 3px 6px rgba(0,0,0,0.4);}
-    header.hero .eslogan{font-size:1.2rem;font-weight:600;font-style:italic;color:var(--acento);margin-bottom:0.5rem;}
+    header.hero h1{
+      font-size:2.8rem;font-weight:800;margin-bottom:0.5rem;
+      text-shadow:0 4px 8px rgba(0,0,0,0.5);
+    }
+    header.hero .eslogan{
+      font-size:1.2rem;font-weight:600;font-style:italic;
+      color:var(--acento);margin-bottom:0.5rem;
+    }
 
+    /* 🧭 Nav */
     nav{
-      background:var(--blanco);padding:0.8rem 1rem;
-      box-shadow:0 4px 14px rgba(0,0,0,0.15);
+      background:rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      padding:0.8rem 1rem;
       position:sticky;top:0;z-index:100;
       display:flex;justify-content:center;gap:0.6rem;flex-wrap:wrap;
-      border-bottom: 2px solid var(--acento);
+      border-bottom: 1px solid rgba(255,255,255,0.25);
     }
     nav button{
-      background:none;border:none;
-      padding:0.6rem 1.3rem;font-size:1rem;
-      cursor:pointer;border-radius:25px;
-      transition:.3s;font-weight:600;color:#333;
+      background:none;
+      border:2px solid transparent;
+      padding:0.6rem 1.3rem;
+      font-size:1rem;
+      cursor:pointer;
+      border-radius:25px;
+      transition:.3s;
+      font-weight:600;
+      color:#fff;
     }
     nav button:hover,nav button.active{
       background:var(--acento);
       color:#333;
+      border-color: var(--acento);
       box-shadow:0 4px 12px rgba(0,0,0,0.15);
     }
 
+    /* ✨ Secciones */
     section{
-      max-width:1000px;margin:2rem auto;padding:2rem 1.2rem;
-      display:none;animation:fadeIn .7s ease;
-      background:rgba(255,255,255,0.97);
-      border-radius:20px;
+      max-width:1000px;
+      margin:2rem auto;
+      padding:2rem 1.5rem;
+      display:none;
+      animation:fadeIn .7s ease;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border-radius:25px;
       box-shadow:0 8px 25px rgba(0,0,0,0.25);
+      color:#fff;
     }
     section.active{display:block;}
     @keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-    h2{text-align:center;font-size:2rem;color:var(--primario);margin-bottom:1rem;text-shadow:0 2px 6px rgba(0,0,0,0.15);}
-    .grid{display:grid;gap:1rem;margin-top:1rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
-    .card{background:var(--gris);border-radius:20px;padding:1.4rem 1rem 1.2rem;text-align:left;box-shadow:0 6px 15px rgba(0,0,0,0.1);transition:.3s;}
-    .card:hover{transform:translateY(-7px) scale(1.02);box-shadow:0 12px 30px rgba(0,0,0,0.25);}
-    .pill{background:var(--acento);color:#333;font-size:.8rem;font-weight:700;padding:.25rem .75rem;border-radius:14px;display:inline-block;margin-bottom:0.6rem;}
-    .card h3{font-size:1.1rem;color:var(--primario);margin:.3rem 0;font-weight:700}
+    h2{
+      text-align:center;
+      font-size:2rem;
+      color:var(--acento);
+      margin-bottom:1rem;
+      text-shadow:0 2px 6px rgba(0,0,0,0.4);
+      position: relative;
+    }
+    h2::after{
+      content:"";
+      display:block;
+      width:80px;
+      height:3px;
+      background:var(--acento);
+      margin:0.5rem auto 0;
+      border-radius:10px;
+    }
+
+    /* 🪄 Cards */
+    .grid{display:grid;gap:1.5rem;margin-top:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .card{
+      background:rgba(255,255,255,0.08);
+      border-radius:20px;
+      padding:1.4rem 1rem 1.2rem;
+      text-align:left;
+      box-shadow:0 6px 15px rgba(0,0,0,0.2);
+      transition:.4s;
+      color:#fff;
+    }
+    .card:hover{
+      transform:translateY(-10px) scale(1.03);
+      background:rgba(255,255,255,0.15);
+      box-shadow:0 12px 30px rgba(0,0,0,0.4);
+    }
+    .pill{
+      background:var(--acento);
+      color:#333;
+      font-size:.8rem;
+      font-weight:700;
+      padding:.25rem .75rem;
+      border-radius:14px;
+      display:inline-block;
+      margin-bottom:0.6rem;
+    }
+    .card h3{font-size:1.1rem;color:var(--acento);margin:.3rem 0;font-weight:700}
     .card p, .card ul{font-size:0.95rem;margin-top:.4rem;line-height:1.6;}
     ul{padding-left:1.2rem;}
     li{margin:.3rem 0;}
 
+    /* 📥 Botón de descarga */
     .boton-descarga{
       display:inline-block;
-      background:var(--primario);
-      color:white;
+      background:var(--acento);
+      color:#333;
       padding:0.9rem 1.5rem;
       font-size:1rem;
       font-weight:600;
@@ -89,23 +155,25 @@
       margin-top:1rem;
     }
     .boton-descarga:hover{
-      background:var(--secundario);
+      background:#fff;
       transform:scale(1.05);
     }
 
+    /* 🦶 Footer */
     footer{
       background:rgba(0,0,0,0.35);
       color:#fff;
       text-align:center;
       padding:1.5rem;
-      font-size:.95rem;font-weight:500;
+      font-size:.95rem;
+      font-weight:500;
       margin-top:2rem;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(4px);
       border-top: 4px solid var(--acento);
     }
 
     @media (max-width: 768px) {
-      header.hero h1 { font-size: 2rem; }
+      header.hero h1 { font-size: 2.2rem; }
       nav { flex-direction: column; gap: 0.5rem; }
       h2 { font-size: 1.6rem; }
     }
@@ -117,7 +185,7 @@
 </head>
 <body>
 
-<!-- Copos -->
+<!-- ❄️ Copos -->
 <div class="snowflakes" aria-hidden="true">
   <div class="snowflake">❄️</div>
   <div class="snowflake">❅</div>
@@ -140,79 +208,77 @@
   <button onclick="mostrarSeccion('registro', event)">Registro</button>
 </nav>
 
-<!-- INICIO -->
+<!-- 🏠 INICIO -->
 <section id="inicio" class="active">
-  <h2>✨ Convocatoria Navideña</h2>
+  <h2>🎤 Bienvenidos al Show de Talentos</h2>
   <div class="grid">
     <div class="card">
       <span class="pill">Convocatoria</span>
-      <h3>Show de Talentos 2025</h3>
-      <p>“Donde la creatividad y el arte cobran vida”. La Dirección de la Escuela Tlahtoani convoca a toda su comunidad estudiantil a participar en este emocionante evento, diseñado para que nuestros alumnos demuestren sus habilidades, talentos y creatividad en el escenario.</p>
+      <p>Participa en el evento más creativo del año: <strong>Show de Talentos 2025</strong>. 
+      Una experiencia única para compartir tu arte, talento y espíritu navideño con toda la comunidad Tlahtoani. ✨🎄</p>
     </div>
   </div>
 </section>
 
-<!-- OBJETIVO -->
+<!-- 🧭 OBJETIVO -->
 <section id="objetivo">
-  <h2>Objetivo</h2>
+  <h2>✨ Objetivo</h2>
   <div class="grid">
     <div class="card">
-      <span class="pill">Objetivo</span>
-      <p>Fomentar la expresión artística, el desarrollo de la autoestima y el compañerismo, ofreciendo a los estudiantes una plataforma para compartir sus talentos con toda la comunidad escolar.</p>
+      <span class="pill">Nuestra meta</span>
+      <p>Fomentar la expresión artística, la confianza y el compañerismo en un ambiente lleno de alegría y creatividad.</p>
     </div>
   </div>
 </section>
 
-<!-- CATEGORÍAS -->
+<!-- 🪄 CATEGORÍAS -->
 <section id="categorias">
-  <h2>Categorías de Participación</h2>
+  <h2>🎭 Categorías de Participación</h2>
   <div class="grid" id="gridCategorias"></div>
 </section>
 
-<!-- PARTICIPANTES -->
+<!-- 👥 PARTICIPANTES -->
 <section id="participantes">
-  <h2>Participantes</h2>
+  <h2>👥 Participantes</h2>
   <div class="grid">
     <div class="card">
       <span class="pill">Reglas</span>
       <ul>
         <li>Podrán participar todos los alumnos.</li>
         <li>La participación puede ser individual o grupal.</li>
-        <li>Los grupos pueden estar conformados por estudiantes de diferentes grados (los ensayos serán de manera externa).</li>
-        <li>Cada estudiante solo podrá participar en una (1) ocasión, ya sea de forma individual o como miembro de un grupo.</li>
+        <li>Grupos de distintos grados son permitidos (ensayos externos).</li>
+        <li>Cada estudiante puede participar solo en una presentación.</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- BASES -->
+<!-- 📜 BASES -->
 <section id="bases">
-  <h2>Bases y Requisitos de la Presentación</h2>
+  <h2>📜 Bases y Requisitos</h2>
   <div class="grid">
-    <div class="card"><span class="pill">Duración</span><h3>⏱️ Máximo 5 minutos</h3><p>Cada número artístico deberá tener una duración máxima de 5 minutos.</p></div>
-    <div class="card"><span class="pill">Contenido</span><h3>🛡️ Apropiado</h3><p>El contenido debe ser apropiado para todas las edades. Se prohíbe lenguaje vulgar, violencia, discriminación o incitación a sustancias.</p></div>
-    <div class="card"><span class="pill">Música</span><h3>🎵 Formato MP3</h3><p>La pista debe entregarse a la Coordinación de Eventos en formato MP3 y USB etiquetado con el nombre del participante o grupo.</p></div>
-    <div class="card"><span class="pill">Vestuario</span><h3>👗 Adecuado</h3><p>Los participantes son responsables de su vestuario y utilería, que deben ser apropiados para el contexto escolar.</p></div>
-    <div class="card"><span class="pill">Originalidad</span><h3>✨ Creatividad</h3><p>Se valorará la creatividad y originalidad.</p></div>
-    <div class="card"><span class="pill">Eliminatoria</span><h3>🏆 Etapa previa</h3><p>Habrá etapa de eliminatoria. Se deben cumplir las rúbricas establecidas (temática navideña) para presentarse en el evento final. <br><strong>Fechas:</strong> Miércoles 26 y Jueves 27 de Noviembre.</p></div>
+    <div class="card"><span class="pill">⏱️ Duración</span><h3>Máximo 5 minutos</h3></div>
+    <div class="card"><span class="pill">🛡️ Contenido</span><p>Debe ser apto para toda la comunidad escolar.</p></div>
+    <div class="card"><span class="pill">🎵 Música</span><p>Entregar pista en MP3 y USB etiquetado.</p></div>
+    <div class="card"><span class="pill">👗 Vestuario</span><p>Los participantes deben traer su propio vestuario y utilería.</p></div>
+    <div class="card"><span class="pill">✨ Originalidad</span><p>Se valorará creatividad y presentación.</p></div>
+    <div class="card"><span class="pill">🏆 Eliminatoria</span><p>Fechas: 26 y 27 de noviembre.</p></div>
   </div>
 </section>
 
-<!-- REGISTRO -->
+<!-- 📝 REGISTRO -->
 <section id="registro">
   <h2>📝 Registro al Show de Talentos</h2>
   <div class="grid">
     <div class="card">
       <span class="pill">Registro</span>
-      <p>Para registrarte, descarga el formulario oficial del evento en el botón de abajo ⬇️<br><br>
-      ✨ <strong>Instrucciones:</strong><br>
-      1. Descarga el PDF.<br>
-      2. Imprímelo.<br>
-      3. Llénalo con tus datos.<br>
-      4. Entrégalo en la Coordinación de Eventos del colegio.</p>
+      <p>Para registrarte:<br>
+      1️⃣ Descarga el formulario<br>
+      2️⃣ Imprímelo<br>
+      3️⃣ Llénalo con tus datos<br>
+      4️⃣ Entrégalo en la Coordinación de Eventos del colegio 📍</p>
       <a href="https://drive.google.com/file/d/1aHtzISAxoHvo_SR_gFl5pRqbong3exBL/view?usp=sharing" 
-         class="boton-descarga" 
-         target="_blank">
+         class="boton-descarga" target="_blank">
          📥 Descargar Formulario
       </a>
     </div>
@@ -236,13 +302,13 @@
     {titulo:"Baile/Danza", icono:"🕺", desc:"Individual o grupal (folclórico, moderno, urbano, etc.)."},
     {titulo:"Música Instrumental", icono:"🎸", desc:"Solista o ensamble (cualquier instrumento)."},
     {titulo:"Actuación/Teatro", icono:"🎭", desc:"Monólogo, sketch, stand-up o declamación."},
-    {titulo:"Talento Variado", icono:"✨", desc:"Magia, malabares, artes marciales, poesía, dibujo en vivo u otra habilidad creativa."}
+    {titulo:"Talento Variado", icono:"✨", desc:"Magia, malabares, poesía, artes marciales u otra habilidad creativa."}
   ];
   const grid=document.getElementById('gridCategorias');
   categorias.forEach(c=>{
     const el=document.createElement('div');el.className='card';
     el.innerHTML=`<span class="pill">Categoría</span>
-                  <h3><span class="icono">${c.icono}</span> ${c.titulo}</h3>
+                  <h3>${c.icono} ${c.titulo}</h3>
                   <p>${c.desc}</p>`;
     grid.appendChild(el);
   });
